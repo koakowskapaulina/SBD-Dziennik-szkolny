@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_DziennikSzkolny.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,13 @@ namespace MVC_DziennikSzkolny.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Logowanie(User u)
+        {
+            ViewBag.Message = "Zalogowano jako: " + u.email;
+            return View();
+        }
+
+
     }
 }

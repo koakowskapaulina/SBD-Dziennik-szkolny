@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,8 +14,12 @@ namespace MVC_DziennikSzkolny.Models
         public string Pesel { get; set; }
         public string Nr_telefonu { get; set; }
 
+        [Required]
         public string email { get; set; }
+        [Required]
+        
         public string haslo { get; set; }
+
 
         
     }
