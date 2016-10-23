@@ -13,5 +13,19 @@ namespace MVC_DziennikSzkolny.Controllers
         {
             return View();
         }
+        public ActionResult Profil()
+        {
+            return View();
+        }
+        public ActionResult Oceny()
+        {
+            return View();
+        }
+        public ActionResult Przedmioty()
+        {
+            return View();
+        }
+
+
     }
 }

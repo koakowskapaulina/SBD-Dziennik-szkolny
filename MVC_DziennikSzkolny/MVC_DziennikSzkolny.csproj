@@ -208,6 +208,16 @@
     <Content Include="Views\Uczen\Panel.cshtml" />
     <Content Include="Views\Rodzic\Panel.cshtml" />
     <Content Include="Views\Nauczyciel\Panel.cshtml" />
+    <Content Include="Views\Uczen\Profil.cshtml" />
+    <Content Include="Views\Uczen\Oceny.cshtml" />
+    <Content Include="Views\Uczen\Przedmioty.cshtml" />
+    <Content Include="Views\Rodzic\ProfilRodzica.cshtml" />
+    <Content Include="Views\Rodzic\ProfilUcznia.cshtml" />
+    <Content Include="Views\Rodzic\Oceny.cshtml" />
+    <Content Include="Views\Rodzic\Wiadomosci.cshtml" />
+    <Content Include="Views\Rodzic\Ogloszenia.cshtml" />
+    <Content Include="Views\Uczen\_LayoutPanel.cshtml" />
+    <Content Include="Views\Rodzic\_LayoutPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

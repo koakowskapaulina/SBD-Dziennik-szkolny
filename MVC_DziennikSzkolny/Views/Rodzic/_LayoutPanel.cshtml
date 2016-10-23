@@ -1,0 +1,22 @@
+﻿
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>Panel rodzica</h2>
+<ul class="nav nav-tabs">
+    <li role="presentation"> @Html.ActionLink("Panel", "Panel", "Rodzic")</li>
+    <li role="presentation">@Html.ActionLink("ProfilRodzica", "ProfilRodzica", "Rodzic")</li>
+    <li role="presentation">@Html.ActionLink("ProfilUcznia", "ProfilUcznia", "Rodzic")</li>
+   <li role="presentation">@Html.ActionLink("Oceny", "Oceny", "Rodzic")</li>
+    <li role="presentation">@Html.ActionLink("Wiadomosci", "Wiadomosci", "Rodzic")</li>
+    <li role="presentation">@Html.ActionLink("Ogloszenia", "Ogloszenia", "Rodzic")</li>
+</ul>
+<div class="jumbotron">
+   <h2> @ViewBag.Title </h2>
+    @RenderBody()
+</div>

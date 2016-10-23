@@ -1,0 +1,31 @@
+﻿@model MVC_DziennikSzkolny.Models.Uczen
+@{
+    ViewBag.Title = "Przedmioty";
+}
+
+@{
+    Layout = "~/Views/Uczen/_LayoutPanel.cshtml";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>Nazwa przedmiotu</th>
+        <th>Nauczyciel prowadzący</th>
+        <th>Strona przedmiotu</th>
+    </tr>
+    <tr>
+        <td>Matematyka</td>
+        <td>Anna Nowak</td>
+        <td><button type="button" class="btn btn-primary">Przejdź</button></td>
+    </tr>
+    <tr>
+        <td>Język polski</td>
+        <td>Jan Kowalski</td>
+        <td><button type="button" class="btn btn-primary">Przejdź</button></td>
+    </tr>
+    <tr>
+        <td>Przyroda</td>
+        <td>Iiks iksinski</td>
+        <td><button type="button" class="btn btn-primary">Przejdź</button></td>
+    </tr>
+</table>
