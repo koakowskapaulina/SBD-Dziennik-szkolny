@@ -1,0 +1,80 @@
+﻿@model MVC_DziennikSzkolny.Models.Rodzic
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Rodzic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pesel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pesel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nr_telefonu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nr_telefonu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+Dzieci:
+@foreach (var v in Model.uczens)
+{
+    <dt>
+        @Html.DisplayNameFor(modelV => v.Imie)
+    </dt>
+
+        <dd>
+            @Html.DisplayFor(modelV => v.Imie)
+        </dd>
+        <dt>
+            Klasa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelV => v.klasa.symbol)
+        </dd>
+
+
+}
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rodzicID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

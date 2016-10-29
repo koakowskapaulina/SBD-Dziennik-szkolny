@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVC_DziennikSzkolny.Models.Uczen>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
+}
+<h2>Lista uczniów</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Klasa
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Imie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.klasa.symbol)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.Imie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwisko)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.uczenID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.uczenID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uczenID })
+        </td>
+    </tr>
+}
+
+</table>

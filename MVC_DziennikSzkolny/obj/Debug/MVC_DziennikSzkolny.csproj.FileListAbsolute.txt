@@ -51,3 +51,14 @@ c:\users\paula\documents\visual studio 2015\Projects\MVC_DziennikSzkolny\MVC_Dzi
 c:\users\paula\documents\visual studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.csprojResolveAssemblyReference.cache
 c:\users\paula\documents\visual studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.dll
 c:\users\paula\documents\visual studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.pdb
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\bin\EntityFramework.dll
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\bin\EntityFramework.SqlServer.dll
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\bin\EntityFramework.xml
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\bin\EntityFramework.SqlServer.xml
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.nazwa.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.csproj.GenerateResource.Cache
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.klasa.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.klasas.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.klasass.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.dd.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.ddd.resources

@@ -32,10 +32,10 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return View("~/Views/Nauczyciel/Panel.cshtml");
             }
-          //  else if (u.email[0] == '5')//admin
-           // {
-          //      return View("~/Views/Admin/Panel.cshtml");
-          //  }
+            else if (u.email[0] == '5')//admin
+            {
+               return View("~/Views/Admin/Panel.cshtml");
+            }
               else
             {
                 ViewBag.Message = "Nieudane logowanie ";

@@ -7,6 +7,7 @@ namespace MVC_DziennikSzkolny.Models
 {
     public class Rodzic : User
     {
-        public List<Uczen> dzieci { get; set; }
+        public int rodzicID { get; set; }
+        public virtual ICollection<Uczen> uczens { get; set; }
     }
 }
