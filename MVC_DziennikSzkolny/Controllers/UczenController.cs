@@ -15,6 +15,7 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Profil()
         {
+            //TODO: możliwość zmiany e-maila i hasła,telefonu
             return View();
         }
         public ActionResult Oceny()

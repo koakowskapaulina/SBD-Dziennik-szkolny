@@ -285,6 +285,12 @@
     <Content Include="Views\Uczens\Index.cshtml" />
     <Content Include="Views\Admin\Panel.cshtml" />
     <Content Include="Views\Admin\_LayoutPanel.cshtml" />
+    <Content Include="Views\Nauczyciel\Profil.cshtml" />
+    <Content Include="Views\Nauczyciel\Oceny.cshtml" />
+    <Content Include="Views\Nauczyciel\WystawOceny.cshtml" />
+    <Content Include="Views\Nauczyciel\Wiadomosci.cshtml" />
+    <Content Include="Views\Nauczyciel\Ogloszenia.cshtml" />
+    <Content Include="Views\Nauczyciel\Przedmioty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

@@ -11,7 +11,10 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Admin
         public ActionResult Panel()
         {
+           
             return View();
+            // TODO: w Admin/Panel - CDDEV Przedmioty
+          
         }
     }
 }
