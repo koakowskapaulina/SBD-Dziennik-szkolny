@@ -345,6 +345,8 @@
     <Content Include="Views\ListaPrzedmiotowKlasies\Index.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddKlasa.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddPrzedmiot.cshtml" />
+    <Content Include="Views\Klasas\AddUczen.cshtml" />
+    <Content Include="Views\Nauczyciel\_LayoutPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

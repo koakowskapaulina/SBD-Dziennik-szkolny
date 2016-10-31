@@ -34,7 +34,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return HttpNotFound();
             }
             return View(klasa);
-            //TODO : lista przedmiotow
+            
         }
 
         // GET: Klasas/Create
@@ -70,6 +70,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Klasa klasa = db.Klasas.Find(id);
+            
             if (klasa == null)
             {
                 return HttpNotFound();
@@ -129,5 +130,43 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //TODO: to się zepsuło i nie działa :<
+      /*  // GET: Klasas/Create
+        public ActionResult AddUczen(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Klasa klasa = db.Klasas.Find(id);
+
+            if (klasa == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.uczenID = new SelectList(db.Uczniowie, "uczenID", "Nazwisko" + "Imie");
+            return View(klasa);
+           
+        }
+
+        // POST: Klasas/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddUczen( Uczen uczen, Klasa klasa)
+        {
+            if (ModelState.IsValid)
+            {
+                klasa.uczens.Add(uczen);
+                uczen.klasaID = klasa.klasaID;
+                db.Entry(klasa).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.uczenID = new SelectList(db.Uczniowie, "uczenID", "Nazwisko" + "Imie");
+            return View(klasa);
+        }*/
     }
 }
