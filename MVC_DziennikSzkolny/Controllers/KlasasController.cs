@@ -34,7 +34,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return HttpNotFound();
             }
             return View(klasa);
-            // TODO: Wyświetlanie listy uczniów należących do klasy
+            //TODO : lista przedmiotow
         }
 
         // GET: Klasas/Create

@@ -1,0 +1,70 @@
+﻿@model MVC_DziennikSzkolny.Models.Przedmiot
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Przedmiot</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwa)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    Lista klas:
+    @foreach (var item in Model.klasy)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.klasa.symbol)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Details", "Details", "Klasas", new { id = item.klasaID }, null) |
+
+            </td>
+        </tr>
+
+    }
+
+    @Html.ActionLink("Dodaj klase", "AddKlasa", "ListaPrzedmiotowKlasies", new { id = Model.przedmiotID }, null)
+
+</div>
+<div>
+    Lista nauczycieli:
+    @foreach (var item in Model.nauczyciele)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nauczyciel.Nazwisko)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Details", "Details", "Nauczyciels", new { id = item.nauczycielID }, null) |
+
+            </td>
+        </tr>
+
+    }
+
+    @Html.ActionLink("Dodaj nauczyciela", "AddNauczyciel", "ListaNauczycieliPrzedmiotus", new { id = Model.przedmiotID }, null)
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.przedmiotID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

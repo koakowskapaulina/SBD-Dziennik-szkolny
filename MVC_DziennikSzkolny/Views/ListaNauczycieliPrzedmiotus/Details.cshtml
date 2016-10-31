@@ -1,0 +1,36 @@
+﻿@model MVC_DziennikSzkolny.Models.ListaNauczycieliPrzedmiotu
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>ListaNauczycieliPrzedmiotu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nauczyciel.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nauczyciel.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przedmiot.nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przedmiot.nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -16,6 +16,14 @@ namespace MVC_DziennikSzkolny.Models
 
         public DbSet<Nauczyciel> Nauczyciele { get; set; }
 
-        public System.Data.Entity.DbSet<MVC_DziennikSzkolny.Models.Klasa> Klasas { get; set; }
+        public DbSet<Klasa> Klasas { get; set; }
+
+        public DbSet<Przedmiot> Przedmioty {get;   set;}
+
+        public DbSet<Ocena> Oceny { get; set; }
+
+        public DbSet<ListaNauczycieliPrzedmiotu> listaNauczycielPrzedmiot { get; set; }
+
+        public DbSet<ListaPrzedmiotowKlasy> listaKlasaPrzedmiot { get; set; }
     }
 }

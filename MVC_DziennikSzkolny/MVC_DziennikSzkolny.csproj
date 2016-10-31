@@ -159,8 +159,11 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KlasasController.cs" />
+    <Compile Include="Controllers\ListaNauczycieliPrzedmiotusController.cs" />
+    <Compile Include="Controllers\ListaPrzedmiotowKlasiesController.cs" />
     <Compile Include="Controllers\NauczycielController.cs" />
     <Compile Include="Controllers\NauczycielsController.cs" />
+    <Compile Include="Controllers\PrzedmiotsController.cs" />
     <Compile Include="Controllers\RodzicController.cs" />
     <Compile Include="Controllers\RodzicsController.cs" />
     <Compile Include="Controllers\UczenController.cs" />
@@ -193,10 +196,42 @@
     <Compile Include="Migrations\201610292027483_ddd.Designer.cs">
       <DependentUpon>201610292027483_ddd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610311125040_noweTab.cs" />
+    <Compile Include="Migrations\201610311125040_noweTab.Designer.cs">
+      <DependentUpon>201610311125040_noweTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610311138434_noweTab2.cs" />
+    <Compile Include="Migrations\201610311138434_noweTab2.Designer.cs">
+      <DependentUpon>201610311138434_noweTab2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610311144110_noweTab3.cs" />
+    <Compile Include="Migrations\201610311144110_noweTab3.Designer.cs">
+      <DependentUpon>201610311144110_noweTab3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610311418034_noweTab4.cs" />
+    <Compile Include="Migrations\201610311418034_noweTab4.Designer.cs">
+      <DependentUpon>201610311418034_noweTab4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610311439296_noweTab5.cs" />
+    <Compile Include="Migrations\201610311439296_noweTab5.Designer.cs">
+      <DependentUpon>201610311439296_noweTab5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610311509026_noweTab6.cs" />
+    <Compile Include="Migrations\201610311509026_noweTab6.Designer.cs">
+      <DependentUpon>201610311509026_noweTab6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610311610359_noweTab8.cs" />
+    <Compile Include="Migrations\201610311610359_noweTab8.Designer.cs">
+      <DependentUpon>201610311610359_noweTab8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
+    <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
+    <Compile Include="Models\ListaPrzedmiotowKlasy.cs" />
     <Compile Include="Models\MyDBContext.cs" />
     <Compile Include="Models\Nauczyciel.cs" />
+    <Compile Include="Models\Ocena.cs" />
+    <Compile Include="Models\Przedmiot.cs" />
     <Compile Include="Models\Rodzic.cs" />
     <Compile Include="Models\Uczen.cs" />
     <Compile Include="Models\User.cs" />
@@ -291,6 +326,25 @@
     <Content Include="Views\Nauczyciel\Wiadomosci.cshtml" />
     <Content Include="Views\Nauczyciel\Ogloszenia.cshtml" />
     <Content Include="Views\Nauczyciel\Przedmioty.cshtml" />
+    <Content Include="Views\Przedmiots\Create.cshtml" />
+    <Content Include="Views\Przedmiots\Delete.cshtml" />
+    <Content Include="Views\Przedmiots\Details.cshtml" />
+    <Content Include="Views\Przedmiots\Edit.cshtml" />
+    <Content Include="Views\Przedmiots\Index.cshtml" />
+    <Content Include="Views\ListaNauczycieliPrzedmiotus\Create.cshtml" />
+    <Content Include="Views\ListaNauczycieliPrzedmiotus\Delete.cshtml" />
+    <Content Include="Views\ListaNauczycieliPrzedmiotus\Details.cshtml" />
+    <Content Include="Views\ListaNauczycieliPrzedmiotus\Edit.cshtml" />
+    <Content Include="Views\ListaNauczycieliPrzedmiotus\Index.cshtml" />
+    <Content Include="Views\ListaNauczycieliPrzedmiotus\AddNauczyciel.cshtml" />
+    <Content Include="Views\ListaNauczycieliPrzedmiotus\AddPrzedmiot.cshtml" />
+    <Content Include="Views\ListaPrzedmiotowKlasies\Create.cshtml" />
+    <Content Include="Views\ListaPrzedmiotowKlasies\Delete.cshtml" />
+    <Content Include="Views\ListaPrzedmiotowKlasies\Details.cshtml" />
+    <Content Include="Views\ListaPrzedmiotowKlasies\Edit.cshtml" />
+    <Content Include="Views\ListaPrzedmiotowKlasies\Index.cshtml" />
+    <Content Include="Views\ListaPrzedmiotowKlasies\AddKlasa.cshtml" />
+    <Content Include="Views\ListaPrzedmiotowKlasies\AddPrzedmiot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">
@@ -310,6 +364,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610292027483_ddd.resx">
       <DependentUpon>201610292027483_ddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610311125040_noweTab.resx">
+      <DependentUpon>201610311125040_noweTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610311138434_noweTab2.resx">
+      <DependentUpon>201610311138434_noweTab2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610311144110_noweTab3.resx">
+      <DependentUpon>201610311144110_noweTab3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610311418034_noweTab4.resx">
+      <DependentUpon>201610311418034_noweTab4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610311439296_noweTab5.resx">
+      <DependentUpon>201610311439296_noweTab5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610311509026_noweTab6.resx">
+      <DependentUpon>201610311509026_noweTab6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610311610359_noweTab8.resx">
+      <DependentUpon>201610311610359_noweTab8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

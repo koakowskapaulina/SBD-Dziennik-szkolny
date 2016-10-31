@@ -56,6 +56,27 @@
 
     </dl>
 </div>
+<div>
+    Lista przedmiotów:
+    @foreach (var item in Model.przedmioty)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.przedmiot.nazwa)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Details", "Details", "Przedmiots", new { id = item.przedmiotID }, null) |
+
+            </td>
+        </tr>
+
+    }
+
+    @Html.ActionLink("Dodaj przedmiot", "AddPrzedmiot", "ListaNauczycieliPrzedmiotus", new { id = Model.nauczycielID}, null)
+
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.nauczycielID }) |
     @Html.ActionLink("Back to List", "Index")

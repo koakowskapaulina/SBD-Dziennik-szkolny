@@ -62,3 +62,10 @@ C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_Dzi
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.klasass.resources
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.dd.resources
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.ddd.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.noweTab.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.noweTab2.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.noweTab3.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.noweTab4.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.noweTab5.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.noweTab6.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.noweTab8.resources

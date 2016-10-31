@@ -51,30 +51,34 @@
         <dd>
             @Html.DisplayFor(model => model.email)
         </dd>
-Dzieci:
-@foreach (var v in Model.uczens)
-{
-    <dt>
-        @Html.DisplayNameFor(modelV => v.Imie)
-    </dt>
-
-        <dd>
-            @Html.DisplayFor(modelV => v.Imie)
-        </dd>
-        <dt>
-            Klasa
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(modelV => v.klasa.symbol)
-        </dd>
-
-
-}
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.rodzicID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div>
+    Dzieci:
+    @foreach (var v in Model.uczens)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(modelV => v.Imie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelV => v.Imie)
+            </dd>
+            <dt>
+                Klasa
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelV => v.klasa.symbol)
+            </dd>
+
+            @Html.ActionLink("Details", "Details", "Uczens", new { id = v.uczenID }, null)
+            </dl>
+            }
+
+</div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.rodzicID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

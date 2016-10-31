@@ -37,8 +37,53 @@
         </dd>
 
     </dl>
+
+    </div>
+<div>
+    Lista uczniów:
+    @foreach (var item in Model.uczens)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+
+            <td>
+                @Html.ActionLink("Details", "Details", "Uczens", new { id = item.uczenID }, null) |
+
+            </td>
+        </tr>
+
+    }
 </div>
+<div>
+    Lista przedmiotów:
+@foreach (var item in Model.przedmioty)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.przedmiot.nazwa)
+        </td>
+       
+
+        <td>
+            @Html.ActionLink("Details", "Details", "Przedmiots", new { id = item.przedmiotID }, null) |
+
+        </td>
+    </tr>
+
+}
+
+@Html.ActionLink("Dodaj przedmiot", "AddPrzedmiot", "ListaPrzedmiotowKlasies", new { id = Model.klasaID }, null)
+
+</div>
+
+
 <p>
+
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.klasaID }) |
     @Html.ActionLink("Powrót do listy klas", "Index")
 </p>

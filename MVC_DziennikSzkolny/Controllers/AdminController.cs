@@ -13,8 +13,7 @@ namespace MVC_DziennikSzkolny.Controllers
         {
            
             return View();
-            // TODO: w Admin/Panel - CDDEV Przedmioty
-          
+            
         }
     }
 }

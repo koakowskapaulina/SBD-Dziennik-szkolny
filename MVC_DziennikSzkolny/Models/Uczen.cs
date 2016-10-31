@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MVC_DziennikSzkolny.Models
@@ -15,5 +16,7 @@ namespace MVC_DziennikSzkolny.Models
 
         public int klasaID { get; set; }
        public virtual Klasa klasa { get; set; }
+
+        public virtual ICollection<Ocena> oceny { get; set; }
     }
 }

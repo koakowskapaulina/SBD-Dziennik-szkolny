@@ -10,6 +10,11 @@ namespace MVC_DziennikSzkolny.Models
         public int nauczycielID { get; set; }
 
         public virtual ICollection<Klasa> Klasas { get; set; }
-    //    public virtual Klasa klasa { get; set; }
+        //    public virtual Klasa klasa { get; set; }
+
+        public virtual ICollection<Ocena> oceny { get; set; }
+
+        public virtual ICollection<ListaNauczycieliPrzedmiotu> przedmioty { get; set; }
+
     }
 }
