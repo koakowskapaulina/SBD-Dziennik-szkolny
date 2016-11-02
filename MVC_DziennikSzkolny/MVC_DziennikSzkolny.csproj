@@ -224,6 +224,42 @@
     <Compile Include="Migrations\201610311610359_noweTab8.Designer.cs">
       <DependentUpon>201610311610359_noweTab8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611021152304_nauczycielPrzedmiot.cs" />
+    <Compile Include="Migrations\201611021152304_nauczycielPrzedmiot.Designer.cs">
+      <DependentUpon>201611021152304_nauczycielPrzedmiot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611021204043_nauczycielPrzedmiot2.cs" />
+    <Compile Include="Migrations\201611021204043_nauczycielPrzedmiot2.Designer.cs">
+      <DependentUpon>201611021204043_nauczycielPrzedmiot2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611021204363_nauczycielPrzedmiot3.cs" />
+    <Compile Include="Migrations\201611021204363_nauczycielPrzedmiot3.Designer.cs">
+      <DependentUpon>201611021204363_nauczycielPrzedmiot3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611021353472_nowa2.cs" />
+    <Compile Include="Migrations\201611021353472_nowa2.Designer.cs">
+      <DependentUpon>201611021353472_nowa2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611021422216_sssss.cs" />
+    <Compile Include="Migrations\201611021422216_sssss.Designer.cs">
+      <DependentUpon>201611021422216_sssss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611021638398_rename.cs" />
+    <Compile Include="Migrations\201611021638398_rename.Designer.cs">
+      <DependentUpon>201611021638398_rename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611022039442_nowaTabelaPNK.cs" />
+    <Compile Include="Migrations\201611022039442_nowaTabelaPNK.Designer.cs">
+      <DependentUpon>201611022039442_nowaTabelaPNK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611022049235_nowaTabelaPNK2.cs" />
+    <Compile Include="Migrations\201611022049235_nowaTabelaPNK2.Designer.cs">
+      <DependentUpon>201611022049235_nowaTabelaPNK2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.cs" />
+    <Compile Include="Migrations\201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.Designer.cs">
+      <DependentUpon>201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -338,6 +374,8 @@
     <Content Include="Views\ListaNauczycieliPrzedmiotus\Index.cshtml" />
     <Content Include="Views\ListaNauczycieliPrzedmiotus\AddNauczyciel.cshtml" />
     <Content Include="Views\ListaNauczycieliPrzedmiotus\AddPrzedmiot.cshtml" />
+    <Content Include="Views\Klasas\AddUczen.cshtml" />
+    <Content Include="Views\Nauczyciel\_LayoutPanel.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\Create.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\Delete.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\Details.cshtml" />
@@ -345,8 +383,6 @@
     <Content Include="Views\ListaPrzedmiotowKlasies\Index.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddKlasa.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddPrzedmiot.cshtml" />
-    <Content Include="Views\Klasas\AddUczen.cshtml" />
-    <Content Include="Views\Nauczyciel\_LayoutPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">
@@ -387,6 +423,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610311610359_noweTab8.resx">
       <DependentUpon>201610311610359_noweTab8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611021152304_nauczycielPrzedmiot.resx">
+      <DependentUpon>201611021152304_nauczycielPrzedmiot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611021204043_nauczycielPrzedmiot2.resx">
+      <DependentUpon>201611021204043_nauczycielPrzedmiot2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611021204363_nauczycielPrzedmiot3.resx">
+      <DependentUpon>201611021204363_nauczycielPrzedmiot3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611021353472_nowa2.resx">
+      <DependentUpon>201611021353472_nowa2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611021422216_sssss.resx">
+      <DependentUpon>201611021422216_sssss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611021638398_rename.resx">
+      <DependentUpon>201611021638398_rename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611022039442_nowaTabelaPNK.resx">
+      <DependentUpon>201611022039442_nowaTabelaPNK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611022049235_nowaTabelaPNK2.resx">
+      <DependentUpon>201611022049235_nowaTabelaPNK2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.resx">
+      <DependentUpon>201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

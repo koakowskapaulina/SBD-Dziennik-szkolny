@@ -8,11 +8,19 @@ namespace MVC_DziennikSzkolny.Models
     public class ListaNauczycieliPrzedmiotu
     {
         public int ID { get; set; }
+
         public int nauczycielID { get; set; }
         public virtual Nauczyciel nauczyciel { get; set; }
 
         public int przedmiotID { get; set; }
         public virtual Przedmiot przedmiot { get; set; }
 
+
+
+        override
+        public String ToString()
+        {
+            return nauczyciel.Nazwisko + " " + przedmiot.nazwa;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace MVC_DziennikSzkolny.Models
         public int klasaID { get; set; }
         public virtual Klasa klasa { get; set; }
 
-        public int przedmiotID { get; set; }
-        public virtual Przedmiot przedmiot { get; set; }
+        public int nauczycielPrzedmiotID { get; set; }
+        public virtual ListaNauczycieliPrzedmiotu nauczycielPrzedmiot { get; set; }
     }
 }

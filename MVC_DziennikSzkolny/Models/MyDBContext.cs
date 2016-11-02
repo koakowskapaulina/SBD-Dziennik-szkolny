@@ -25,5 +25,7 @@ namespace MVC_DziennikSzkolny.Models
         public DbSet<ListaNauczycieliPrzedmiotu> listaNauczycielPrzedmiot { get; set; }
 
         public DbSet<ListaPrzedmiotowKlasy> listaKlasaPrzedmiot { get; set; }
+
+       
     }
 }

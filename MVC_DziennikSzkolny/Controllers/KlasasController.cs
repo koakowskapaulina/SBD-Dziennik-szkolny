@@ -58,7 +58,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Imie", klasa.nauczycielID);
+            ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Nazwisko", klasa.nauczycielID);
             return View(klasa);
         }
 

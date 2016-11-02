@@ -22,27 +22,28 @@
 
     </dl>
 </div>
+<!--
 <div>
     Lista klas:
-    @foreach (var item in Model.klasy)
+    foreach (var item in Model.klasy)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.klasa.symbol)
+                Html.DisplayFor(modelItem => item.klasa.symbol)
             </td>
 
 
             <td>
-                @Html.ActionLink("Details", "Details", "Klasas", new { id = item.klasaID }, null) |
+                Html.ActionLink("Details", "Details", "Klasas", new { id = item.klasaID }, null) |
 
             </td>
         </tr>
 
     }
 
-    @Html.ActionLink("Dodaj klase", "AddKlasa", "ListaPrzedmiotowKlasies", new { id = Model.przedmiotID }, null)
-
-</div>
+   Html.ActionLink("Dodaj klase", "AddKlasa", "ListaPrzedmiotowKlasies", new { id = Model.przedmiotID }, null)
+   
+</div> -->
 <div>
     Lista nauczycieli:
     @foreach (var item in Model.nauczyciele)

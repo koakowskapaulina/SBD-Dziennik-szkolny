@@ -10,7 +10,7 @@ namespace MVC_DziennikSzkolny.Models
         public int ocenaID { get; set; }
         public DateTime data_wystawienia { get; set; }
 
-        public int UczenID { get; set; }
+        public int uczenID { get; set; }
         public virtual Uczen uczen { get; set; }
 
         public int nauczycielID { get; set; }

@@ -3,9 +3,7 @@
 @{
     ViewBag.Title = "Delete";
 }
-@{
-    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
-}
+
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
@@ -22,11 +20,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.przedmiot.nazwa)
+            @Html.DisplayNameFor(model => model.nauczycielPrzedmiot.ID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.przedmiot.nazwa)
+            @Html.DisplayFor(model => model.nauczycielPrzedmiot.ID)
         </dd>
 
     </dl>

@@ -3,9 +3,7 @@
 @{
     ViewBag.Title = "Details";
 }
-@{
-    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
-}
+
 <h2>Details</h2>
 
 <div>
@@ -21,11 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.przedmiot.nazwa)
+            @Html.DisplayNameFor(model => model.nauczycielPrzedmiot.ID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.przedmiot.nazwa)
+            @Html.DisplayFor(model => model.nauczycielPrzedmiot.ID)
         </dd>
 
     </dl>

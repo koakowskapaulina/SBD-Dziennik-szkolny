@@ -17,8 +17,10 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: ListaPrzedmiotowKlasies
         public ActionResult Index()
         {
-            var listaKlasaPrzedmiot = db.listaKlasaPrzedmiot.Include(l => l.klasa).Include(l => l.przedmiot);
-            return View(listaKlasaPrzedmiot.ToList());
+            var listaKlasaPrzedmiot = db.listaKlasaPrzedmiot.Include(l => l.klasa).Include(l => l.nauczycielPrzedmiot);
+      //      var listaKlasaPrzedmiot = db.listaKlasaPrzedmiot.Include(l => l.klasa).Include(l => l.nauczycielPrzedmiot).Include(l => l.nauczycielPrzedmiot.przedmiot).Include(l => l.nauczycielPrzedmiot.nauczyciel);
+            //  return View(listaKlasaPrzedmiot.ToList());
+            return View(db.listaKlasaPrzedmiot.ToList());
         }
 
         // GET: ListaPrzedmiotowKlasies/Details/5
@@ -40,7 +42,7 @@ namespace MVC_DziennikSzkolny.Controllers
         public ActionResult Create()
         {
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa");
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID");
             return View();
         }
 
@@ -49,7 +51,7 @@ namespace MVC_DziennikSzkolny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,klasaID,przedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
+        public ActionResult Create([Bind(Include = "ID,klasaID,nauczycielPrzedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +61,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.przedmiotID);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID", listaPrzedmiotowKlasy.nauczycielPrzedmiotID);
             return View(listaPrzedmiotowKlasy);
         }
 
@@ -76,7 +78,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return HttpNotFound();
             }
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.przedmiotID);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID", listaPrzedmiotowKlasy.nauczycielPrzedmiotID);
             return View(listaPrzedmiotowKlasy);
         }
 
@@ -85,7 +87,7 @@ namespace MVC_DziennikSzkolny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,klasaID,przedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
+        public ActionResult Edit([Bind(Include = "ID,klasaID,nauczycielPrzedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +96,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.przedmiotID);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID", listaPrzedmiotowKlasy.nauczycielPrzedmiotID);
             return View(listaPrzedmiotowKlasy);
         }
 
@@ -139,30 +141,24 @@ namespace MVC_DziennikSzkolny.Controllers
 
 
 
-
-
-
-
-
-
-
-
-
-
+        
         // GET: ListaPrzedmiotowKlasies/AddKlasa/5
-        public ActionResult AddKlasa(int? id)
+        public ActionResult AddKlasa(int? id)//dostaje id przedmiotu
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Przedmiot przedmiot = db.Przedmioty.Find(id);
+
             if (przedmiot == null)
             {
                 return HttpNotFound();
             }
+         //   IEnumerable<ListaNauczycieliPrzedmiotu> NP = db.listaNauczycielPrzedmiot.Where(a => a.przedmiotID == id);
+           
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa",przedmiot.przedmiotID);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot.Where(a => a.przedmiotID == id), "ID", "nauczycielID");
 
             return View();
         }
@@ -172,23 +168,26 @@ namespace MVC_DziennikSzkolny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddKlasa([Bind(Include = "ID,klasaID,przedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
+        public ActionResult AddKlasa([Bind(Include = "ID,klasaID,nauczycielPrzedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
         {
             if (ModelState.IsValid)
             {
+                
                 db.listaKlasaPrzedmiot.Add(listaPrzedmiotowKlasy);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Przedmiots", new { id = listaPrzedmiotowKlasy.przedmiotID });
+                //     return RedirectToAction("Details", "Przedmiots", new { id = listaPrzedmiotowKlasy.nauczycielPrzedmiot.przedmiotID });
+                return RedirectToAction("Index", "Przedmiots");
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.przedmiotID);
+          //  ViewBag.nauczycielPrzedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.nauczycielPrzedmiot.przedmiot);
             return View(listaPrzedmiotowKlasy);
         }
 
 
 
-
+        //TODO: 
+        /*
 
         // GET: ListaPrzedmiotowKlasies/AddPrzedmiot/5
         public ActionResult AddPrzedmiot(int? id)
@@ -202,7 +201,7 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol",klasa.klasaID);
+            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", klasa.klasaID);
             ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa");
 
             return View();
@@ -219,12 +218,18 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 db.listaKlasaPrzedmiot.Add(listaPrzedmiotowKlasy);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Klasas",new { id=listaPrzedmiotowKlasy.klasaID });
+                return RedirectToAction("Details", "Klasas", new { id = listaPrzedmiotowKlasy.klasaID });
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
             ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.przedmiotID);
             return View(listaPrzedmiotowKlasy);
         }
+
+
+    */
+
+
+
     }
 }

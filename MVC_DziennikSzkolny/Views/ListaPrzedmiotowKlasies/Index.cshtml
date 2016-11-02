@@ -3,9 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-@{
-    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
-}
+
 <h2>Index</h2>
 
 <p>
@@ -17,9 +15,12 @@
             @Html.DisplayNameFor(model => model.klasa.symbol)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.przedmiot.nazwa)
+            @Html.DisplayNameFor(model => model.nauczycielPrzedmiot.nauczyciel.Nazwisko)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.nauczycielPrzedmiot.przedmiot.nazwa)
+        </th>
+  <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -27,9 +28,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.klasa.symbol)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.przedmiot.nazwa)
-        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.nauczyciel.Nazwisko)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.przedmiot.nazwa)
+        </th>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
