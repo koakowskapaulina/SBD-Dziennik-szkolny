@@ -260,6 +260,10 @@
     <Compile Include="Migrations\201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.Designer.cs">
       <DependentUpon>201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611042202161_w.cs" />
+    <Compile Include="Migrations\201611042202161_w.Designer.cs">
+      <DependentUpon>201611042202161_w.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -450,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.resx">
       <DependentUpon>201611022053295_usuwamJednakNowaTabeleSamoSieNaprawilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611042202161_w.resx">
+      <DependentUpon>201611042202161_w.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

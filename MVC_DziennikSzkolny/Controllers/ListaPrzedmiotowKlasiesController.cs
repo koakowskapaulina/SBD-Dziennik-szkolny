@@ -155,15 +155,14 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
-         //   IEnumerable<ListaNauczycieliPrzedmiotu> NP = db.listaNauczycielPrzedmiot.Where(a => a.przedmiotID == id);
-           
+          
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
             ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot.Where(a => a.przedmiotID == id), "ID", "nauczycielID");
 
             return View();
         }
 
-        // POST: ListaNauczycieliPrzedmiotus/Edit/5
+        // POST: ListaNauczycieliPrzedmiotus/AddKlasa/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -180,17 +179,16 @@ namespace MVC_DziennikSzkolny.Controllers
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
-          //  ViewBag.nauczycielPrzedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.nauczycielPrzedmiot.przedmiot);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "nauczycielID");
             return View(listaPrzedmiotowKlasy);
         }
 
 
 
-        //TODO: 
-        /*
+      
 
         // GET: ListaPrzedmiotowKlasies/AddPrzedmiot/5
-        public ActionResult AddPrzedmiot(int? id)
+        public ActionResult AddPrzedmiot(int? id)//dostajemy id klasy
         {
             if (id == null)
             {
@@ -202,17 +200,17 @@ namespace MVC_DziennikSzkolny.Controllers
                 return HttpNotFound();
             }
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", klasa.klasaID);
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa");
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "nauczycielID");
 
             return View();
         }
 
-        // POST: ListaNauczycieliPrzedmiotus/Edit/5
+        // POST: ListaNauczycieliPrzedmiotus/AddPrzedmiot/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddPrzedmiot([Bind(Include = "ID,klasaID,przedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
+        public ActionResult AddPrzedmiot([Bind(Include = "ID,klasaID,nauczycielPrzedmiotID")] ListaPrzedmiotowKlasy listaPrzedmiotowKlasy)
         {
             if (ModelState.IsValid)
             {
@@ -222,12 +220,12 @@ namespace MVC_DziennikSzkolny.Controllers
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaPrzedmiotowKlasy.przedmiotID);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "nauczycielID");
             return View(listaPrzedmiotowKlasy);
         }
 
 
-    */
+    
 
 
 
