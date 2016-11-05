@@ -264,6 +264,10 @@
     <Compile Include="Migrations\201611042202161_w.Designer.cs">
       <DependentUpon>201611042202161_w.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611051805567_ocena.cs" />
+    <Compile Include="Migrations\201611051805567_ocena.Designer.cs">
+      <DependentUpon>201611051805567_ocena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -306,6 +310,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modalDoOcen.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -387,6 +392,10 @@
     <Content Include="Views\ListaPrzedmiotowKlasies\Index.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddKlasa.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddPrzedmiot.cshtml" />
+    <Content Include="Views\Nauczyciel\EditProfil.cshtml" />
+    <Content Include="Views\Uczen\EditProfil.cshtml" />
+    <Content Include="Views\Rodzic\EditProfil.cshtml" />
+    <Content Include="Views\Nauczyciel\DetailsPrzedmiot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">
@@ -457,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611042202161_w.resx">
       <DependentUpon>201611042202161_w.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611051805567_ocena.resx">
+      <DependentUpon>201611051805567_ocena.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

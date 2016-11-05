@@ -1,0 +1,27 @@
+﻿@model MVC_DziennikSzkolny.Models.Przedmiot
+
+@{
+    ViewBag.Title = "DetailsPrzedmiot";
+    Layout = "~/Views/Nauczyciel/_LayoutPanel.cshtml";
+}
+
+<h2>DetailsPrzedmiot</h2>
+
+<div>
+    <h4>Przedmiot</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+  
+</p>

@@ -9,32 +9,56 @@
 <h2>Profil</h2>
 
 <div>
-    <h4>Nauczyciel</h4>
-    <hr />
+    
+
+    <div>
+        <h4>Nauczyciel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Imie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Imie)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nazwisko)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Pesel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pesel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nr_telefonu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nr_telefonu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
 
 
-    <table class="table table-hover">
-        <tr>
-            <td>Imię</td>
-            <td>Jan</td>
-        </tr>
-        <tr>
-            <td>Nazwisko</td>
-            <td>Kowalski</td>
-        </tr>
-        <tr>
-            <td>Pesel</td>
-            <td>99782345612</td>
-        </tr>
-        <tr>
-            <td>Data urodzenia</td>
-            <td>23-03-1999</td>
-        </tr>
-        <tr>
-            <td>E-mail</td>
-            <td>malpa@wp.pl</td>
-        </tr>
 
-    </table>
-
+        </dl>
+    </div>
+    <div> @Html.ActionLink("Edit", "EditProfil", new { id = Model.nauczycielID })</div> 
+    
 </div>

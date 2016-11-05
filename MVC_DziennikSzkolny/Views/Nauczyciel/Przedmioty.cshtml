@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<MVC_DziennikSzkolny.Models.ListaNauczycieliPrzedmiotu>
+
 @{
     ViewBag.Title = "Przedmioty";
 }
@@ -7,3 +8,21 @@
 }
 <h2>Przedmioty</h2>
 
+
+<table class="table">
+   
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.przedmiot.nazwa)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "DetailsPrzedmiot", new { id = item.przedmiotID }) |
+              
+            </td>
+        </tr>
+    }
+
+</table>

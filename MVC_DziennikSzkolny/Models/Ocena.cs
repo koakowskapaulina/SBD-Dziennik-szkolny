@@ -19,6 +19,8 @@ namespace MVC_DziennikSzkolny.Models
         public int przedmiotID { get; set; }
         public virtual Przedmiot przedmiot { get; set; }
 
+        public double wartosc { get; set; }
+        public string opis { get; set; }
 
     }
 }

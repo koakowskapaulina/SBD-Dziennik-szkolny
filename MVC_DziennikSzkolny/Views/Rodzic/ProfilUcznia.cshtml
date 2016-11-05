@@ -1,4 +1,4 @@
-﻿@model MVC_DziennikSzkolny.Models.Rodzic
+﻿@model IEnumerable<MVC_DziennikSzkolny.Models.Uczen>
 
 @{
     ViewBag.Title = "ProfilUcznia";
@@ -9,26 +9,73 @@
 
 
 
-<table class="table table-hover">
-    <tr>
-        <td>Imię</td>
-        <td>Jan</td>
-    </tr>
-    <tr>
-        <td>Nazwisko</td>
-        <td>Kowalski</td>
-    </tr>
-    <tr>
-        <td>Pesel</td>
-        <td>99782345612</td>
-    </tr>
-    <tr>
-        <td>Data urodzenia</td>
-        <td>23-03-1999</td>
-    </tr>
-    <tr>
-        <td>E-mail</td>
-        <td>malpa@wp.pl</td>
-    </tr>
+@foreach (var item in Model)
+{
+    <div>
+        <h4>Uczen:</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Klasa
+            </dt>
 
-</table>
+            <dd>
+               @Html.DisplayFor(modelItem => item.klasa.symbol)
+            </dd>
+
+         
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Data_urodzenia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Data_urodzenia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Imie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Pesel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Pesel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nr_telefonu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Nr_telefonu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.email)
+            </dd>
+
+
+
+        </dl>
+        </div>
+            }
+      

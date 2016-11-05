@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MVC_DziennikSzkolny.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,6 +11,9 @@ namespace MVC_DziennikSzkolny.Controllers
 {
     public class NauczycielController : Controller
     {
+
+        private  MyDBContext db = new MyDBContext();
+      
         // GET: Nauczyciel
         public ActionResult Panel()
         {
@@ -15,18 +21,22 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Profil()
         {
-            return View();
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+            return View(nauczyciel);
         }
         public ActionResult Oceny()
         {
             //TODO: możliwość przejrzenia wystawionych przez nauczyciela LUB w przypadku wychowawcy wszystkich ocen swojej klasy
-            return View();
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+
+            return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp => kp.nauczycielPrzedmiot.przedmiot).Include(l => l.klasa.uczens));
+            
         }
         public ActionResult WystawOceny()
         {
-            //TODO : możliwości wystawienia jednej lub kilku ocen na raz: (1. wybór przedmiotu(o ile nauczyciel uczy więcej niż 1) 2. wybór klasy 3.wybór ucznia)
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
             
-            return View();
+            return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp=>kp.nauczycielPrzedmiot.przedmiot).Include(l=>l.klasa.uczens));
         }
         public ActionResult Wiadomosci()
         {
@@ -39,7 +49,48 @@ namespace MVC_DziennikSzkolny.Controllers
         public ActionResult Przedmioty()
         {
             //TODO : mozliwosc dodawania treści, plików i tworzenia testow
-            return View();
+
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+           
+            return View(nauczyciel.przedmioty);
+        }
+
+        public ActionResult DetailsPrzedmiot(int ?id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Przedmiot przedmiot = db.Przedmioty.Find(id);
+            if (przedmiot == null)
+            {
+                return HttpNotFound();
+            }
+            return View(przedmiot);
+           
+        }
+
+        // GET:
+        public ActionResult EditProfil()
+        {
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+            return View(nauczyciel);
+        }
+
+        // POST: Nauczyciels/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfil([Bind(Include = "nauczycielID,Imie,Nazwisko,Pesel,Nr_telefonu,email,haslo")] Nauczyciel nauczyciel)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(nauczyciel).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Profil");
+            }
+            return View(nauczyciel);
         }
     }
 }
