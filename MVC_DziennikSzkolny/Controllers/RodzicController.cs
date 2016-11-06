@@ -36,7 +36,6 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Oceny()
         {
-            //TODO : wziąć pod uwagę możliwość posiadania kilkorga dzieci
             return View();
         }
         public ActionResult Wiadomosci()

@@ -26,7 +26,6 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Oceny()
         {
-            //TODO: możliwość przejrzenia wystawionych przez nauczyciela LUB w przypadku wychowawcy wszystkich ocen swojej klasy
             Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
 
             return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp => kp.nauczycielPrzedmiot.przedmiot).Include(l => l.klasa.uczens));

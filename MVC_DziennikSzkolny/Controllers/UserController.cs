@@ -15,31 +15,43 @@ namespace MVC_DziennikSzkolny.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Logowanie(User u)
+        [ValidateAntiForgeryToken]
+        public ActionResult Logowanie([Bind(Include = "email,haslo")] User u)
         {
-            //  UczenController uczencontroller = new UczenController();
-            if (u.email[0] == '1')//uczen
+            if (ModelState.IsValid)
             {
+                //TODO: nie działa jak trzeba 
 
-                return View("~/Views/Uczen/Panel.cshtml");
-            }
-            else if (u.email[0] == '2')//rodzic
-            {
-                return View("~/Views/Rodzic/Panel.cshtml");
+                if (u.email[0] == '1')//uczen
+                {
+                    return RedirectToAction("Panel", "Uczen");
+
+                    //  return View("~/Views/Uczen/Panel.cshtml");
+                }
+                else if (u.email[0] == '2')//rodzic
+                {
+                    return View("~/Views/Rodzic/Panel.cshtml");
+
+                }
+                else if (u.email[0] == '3')//nauczyciel
+                {
+                    return View("~/Views/Nauczyciel/Panel.cshtml");
+                }
+                else if (u.email[0] == '5')//admin
+                {
+                    return View("~/Views/Admin/Panel.cshtml");
+                }
+                else
+                {
+                    ViewBag.Message = "Nieudane logowanie ";
+
+                    return View();
+                }
 
             }
-            else if (u.email[0] == '3')//nauczyciel
+            else
             {
-                return View("~/Views/Nauczyciel/Panel.cshtml");
-            }
-            else if (u.email[0] == '5')//admin
-            {
-               return View("~/Views/Admin/Panel.cshtml");
-            }
-              else
-            {
-                ViewBag.Message = "Nieudane logowanie ";
-
+                ViewBag.Message = "not isValid ";
                 return View();
             }
         }
