@@ -1,0 +1,61 @@
+﻿@model MVC_DziennikSzkolny.Models.Klasa
+
+@{
+    ViewBag.Title = "Uczniowie";
+    Layout = "~/Views/Nauczyciel/_LayoutPanel.cshtml";
+}
+
+<h2>Uczniowie</h2>
+@ViewBag.wychowawstwo
+@if (Model != null)
+{
+<div>
+    <h4>Klasa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rok_rozpoczecia_toku_ksztalcenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rok_rozpoczecia_toku_ksztalcenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.symbol)
+        </dd>
+
+    </dl>
+</div>
+<div>
+   
+    Lista uczniów:
+    <table class="table table-hover">
+        @foreach (var item in Model.uczens)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazwisko)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Details", "DetailsUczen", "Nauczyciel", new { id = item.uczenID }, null) |
+
+                </td>
+            </tr>
+
+        }
+    </table>
+
+
+</div>
+    }

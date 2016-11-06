@@ -367,7 +367,7 @@
     <Content Include="Views\Admin\_LayoutPanel.cshtml" />
     <Content Include="Views\Nauczyciel\Profil.cshtml" />
     <Content Include="Views\Nauczyciel\Oceny.cshtml" />
-    <Content Include="Views\Nauczyciel\WystawOceny.cshtml" />
+    <Content Include="Views\Nauczyciel\WystawOcenyKlasie.cshtml" />
     <Content Include="Views\Nauczyciel\Wiadomosci.cshtml" />
     <Content Include="Views\Nauczyciel\Ogloszenia.cshtml" />
     <Content Include="Views\Nauczyciel\Przedmioty.cshtml" />
@@ -396,6 +396,8 @@
     <Content Include="Views\Uczen\EditProfil.cshtml" />
     <Content Include="Views\Rodzic\EditProfil.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsPrzedmiot.cshtml" />
+    <Content Include="Views\Nauczyciel\Uczniowie.cshtml" />
+    <Content Include="Views\Nauczyciel\DetailsUczen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

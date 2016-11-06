@@ -1,0 +1,84 @@
+﻿@model MVC_DziennikSzkolny.Models.ListaPrzedmiotowKlasy
+   
+@{
+    ViewBag.Title = "WystawOceny";
+}
+@{
+    Layout = "~/Views/Nauczyciel/_LayoutPanel.cshtml";
+}
+<h2>WystawOceny klasie: 
+    @Html.DisplayFor(model => model.klasa.symbol)
+     z przedmiotu:@Html.DisplayFor(model => model.nauczycielPrzedmiot.przedmiot.nazwa)</h2>
+
+    <div>
+    <div class="form-group">
+        <label for="przedmiot" class="control-label">Przedmiot:</label>
+        <input type="text" class="form-control" id="przedmiot" value="przedmiot_nazwa" disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="opis" class="control-label">Opis:</label>
+        <input type="text" class="form-control" placeholder="Wprowadź opis..." id="opis">
+    </div>
+
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    Imie
+                </th>
+                <th>
+                    Nazwisko
+                </th>
+                <th>
+                    Oceny
+                </th>
+                <th> Nowa ocena</th>
+            </tr>
+            @foreach (var u in Model.klasa.uczens)
+            {
+              
+                <tr>
+                    <td>
+
+                        @Html.DisplayFor(modelU => u.Imie)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelU => u.Nazwisko)
+                    </td>
+                    <td>oceny_z_przemiotu</td>
+                    <td>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked>1
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="options" id="option2" autocomplete="off">2
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="options" id="option3" autocomplete="off">3
+
+                            </label> <label class="btn btn-default">
+                                <input type="radio" name="options" id="option4" autocomplete="off">4
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="options" id="option5" autocomplete="off">5
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="options" id="option6" autocomplete="off">6
+                            </label>
+                            <label class="btn btn-default active" active>
+                                <input type="radio" name="options" id="option0" autocomplete="off" checked> Brak
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>

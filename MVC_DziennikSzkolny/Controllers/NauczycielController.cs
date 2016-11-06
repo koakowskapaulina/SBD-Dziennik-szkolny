@@ -13,7 +13,7 @@ namespace MVC_DziennikSzkolny.Controllers
     {
 
         private  MyDBContext db = new MyDBContext();
-      
+        int idNauczyciela = 1;
         // GET: Nauczyciel
         public ActionResult Panel()
         {
@@ -21,22 +21,46 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Profil()
         {
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
             return View(nauczyciel);
         }
         public ActionResult Oceny()
         {
             //TODO: możliwość przejrzenia wystawionych przez nauczyciela LUB w przypadku wychowawcy wszystkich ocen swojej klasy
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
 
             return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp => kp.nauczycielPrzedmiot.przedmiot).Include(l => l.klasa.uczens));
             
         }
-        public ActionResult WystawOceny()
+        public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(int ?id)//idPrzedmiotKlasa
         {
             Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
             
-            return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp=>kp.nauczycielPrzedmiot.przedmiot).Include(l=>l.klasa.uczens));
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ListaPrzedmiotowKlasy klasaPrzedmiot = db.listaKlasaPrzedmiot.Find(id);
+            if (klasaPrzedmiot == null)
+            {
+                return HttpNotFound();
+            }
+            return View(klasaPrzedmiot);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(IList<Ocena> oceny)
+        {
+           /* foreach (Ocena o in oceny)
+            * { 
+            * zapisz kazda ocene do bazy z aktualna data
+            }
+
+            */
+
+            return RedirectToAction("Panel");
         }
         public ActionResult Wiadomosci()
         {
@@ -50,7 +74,7 @@ namespace MVC_DziennikSzkolny.Controllers
         {
             //TODO : mozliwosc dodawania treści, plików i tworzenia testow
 
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
            
             return View(nauczyciel.przedmioty);
         }
@@ -73,7 +97,7 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET:
         public ActionResult EditProfil()
         {
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
             return View(nauczyciel);
         }
 
@@ -91,6 +115,37 @@ namespace MVC_DziennikSzkolny.Controllers
                 return RedirectToAction("Profil");
             }
             return View(nauczyciel);
+        }
+
+
+        public ActionResult Uczniowie()//klasa wychowawcy
+        {
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
+            if(nauczyciel.klasa.Any() && nauczyciel.klasa!=null)//if nauczyciel jest wychowawcą
+            {
+                ViewBag.wychowawstwo = "Wychowawca klasy " + nauczyciel.klasa.First().symbol;
+                return View(nauczyciel.klasa.First());
+            }
+            else
+            {
+                ViewBag.wychowawstwo = "Nie jesteś wychowawcą żadnej z klas";
+            }
+            return View();
+        }
+
+        public ActionResult DetailsUczen(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Uczen uczen = db.Uczniowie.Find(id);
+            if (uczen == null)
+            {
+                return HttpNotFound();
+            }
+            return View(uczen);
+
         }
     }
 }

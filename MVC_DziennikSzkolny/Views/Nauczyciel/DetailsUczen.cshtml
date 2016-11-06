@@ -1,0 +1,118 @@
+﻿@model MVC_DziennikSzkolny.Models.Uczen
+
+@{
+    ViewBag.Title = "DetailsUczen";
+    Layout = "~/Views/Nauczyciel/_LayoutPanel.cshtml";
+}
+
+<h2>DetailsUczen</h2>
+
+<div>
+    <h4>Uczen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.klasa.symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klasa.symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rodzic.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rodzic.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_urodzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_urodzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pesel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pesel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nr_telefonu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nr_telefonu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        
+
+    </dl>
+</div>
+
+Oceny
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Matematyka</h3>
+    </div>
+    <div class="panel-body">
+        <button type="button" class="btn btn-default btn-sm">3</button>
+        <button type="button" class="btn btn-default btn-sm">4</button>
+        <button type="button" class="btn btn-default btn-sm">6</button>
+        <button type="button" class="btn btn-default btn-sm">5</button>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Język polski</h3>
+    </div>
+    <div class="panel-body">
+        <button type="button" class="btn btn-default btn-sm">2</button>
+        <button type="button" class="btn btn-default btn-sm">3</button>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Przyroda</h3>
+    </div>
+    <div class="panel-body">
+        <button type="button" class="btn btn-default btn-sm">1</button>
+        <button type="button" class="btn btn-default btn-sm">5</button>
+    </div>
+</div>
+
+<p>
+ 
+    @Html.ActionLink("Back to List", "Uczniowie")
+</p>

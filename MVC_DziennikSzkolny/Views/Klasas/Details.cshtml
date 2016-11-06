@@ -41,45 +41,48 @@
     </div>
 <div>
     Lista uczniów:
-    @foreach (var item in Model.uczens)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nazwisko)
-            </td>
+    <table>
+        @foreach (var item in Model.uczens)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazwisko)
+                </td>
 
-            <td>
-                @Html.ActionLink("Details", "Details", "Uczens", new { id = item.uczenID }, null) |
+                <td>
+                    @Html.ActionLink("Details", "Details", "Uczens", new { id = item.uczenID }, null) |
 
-            </td>
-        </tr>
+                </td>
+            </tr>
 
-    }
+        }
+    </table>
   <!--  Html.ActionLink("Dodaj ucznia", "AddUczen",  new { id = Model.klasaID })   POPSUTE-->
 
 
 </div>
 <div>
     Lista przedmiotów:
-@foreach (var item in Model.przedmioty)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.przedmiot.nazwa)
-        </td>
-       
+    <table>
+        @foreach (var item in Model.przedmioty)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.przedmiot.nazwa)
+                </td>
 
-        <td>
-            @Html.ActionLink("Details", "Details", "Przedmiots", new { id = item.nauczycielPrzedmiot.przedmiot.przedmiotID }, null) |
 
-        </td>
-    </tr>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Przedmiots", new { id = item.nauczycielPrzedmiot.przedmiot.przedmiotID }, null) |
 
-}
+                </td>
+            </tr>
 
+        }
+    </table>
 @Html.ActionLink("Dodaj przedmiot", "AddPrzedmiot", "ListaPrzedmiotowKlasies", new { id = Model.klasaID }, null)
 
 </div>
