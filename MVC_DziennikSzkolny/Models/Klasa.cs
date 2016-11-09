@@ -16,9 +16,6 @@ namespace MVC_DziennikSzkolny.Models
         public String symbol { get; set; }
 
         public virtual ICollection<Uczen> uczens { get; set; }
-
-
-     
         public int nauczycielID { get; set; }
         public virtual Nauczyciel nauczyciel { get; set; }//wychowawca
 

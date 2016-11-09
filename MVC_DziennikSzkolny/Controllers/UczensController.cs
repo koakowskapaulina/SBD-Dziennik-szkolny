@@ -40,7 +40,7 @@ namespace MVC_DziennikSzkolny.Controllers
         public ActionResult Create()
         {
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
-            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie");
+            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Nazwisko");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", uczen.klasaID);
-            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie", uczen.rodzicID);
+            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Nazwisko", uczen.rodzicID);
             return View(uczen);
         }
 
@@ -76,7 +76,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return HttpNotFound();
             }
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", uczen.klasaID);
-            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie", uczen.rodzicID);
+            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Nazwisko", uczen.rodzicID);
             return View(uczen);
         }
 
@@ -94,7 +94,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", uczen.klasaID);
-            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie", uczen.rodzicID);
+            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Nazwisko", uczen.rodzicID);
             return View(uczen);
         }
 

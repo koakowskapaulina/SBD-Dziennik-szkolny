@@ -7,12 +7,19 @@
     Layout = "~/Views/Rodzic/_LayoutPanel.cshtml";
 }
 
-
+<script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});</script>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Matematyka</h3>
     </div>
     <div class="panel-body">
+        <!--TODO: oczywiscie scrypty nie dzialaja-->
+        <button type="button" class="btn btn-default btn-sm"  data-placement="bottom" data-toggle="popover" 
+                data-content="Data_wystawienia opis nauczyciel ..." >3</button>
+
         <button type="button" class="btn btn-default btn-sm">3</button>
         <button type="button" class="btn btn-default btn-sm">4</button>
         <button type="button" class="btn btn-default btn-sm">6</button>
