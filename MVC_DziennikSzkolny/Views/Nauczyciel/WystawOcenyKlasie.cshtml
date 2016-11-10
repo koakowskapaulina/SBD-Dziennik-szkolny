@@ -1,4 +1,4 @@
-﻿@model MVC_DziennikSzkolny.Models.ListaPrzedmiotowKlasy
+﻿@model IList<MVC_DziennikSzkolny.Models.Ocena>
    
 @{
     ViewBag.Title = "WystawOceny";
@@ -6,16 +6,18 @@
 @{
     Layout = "~/Views/Nauczyciel/_LayoutPanel.cshtml";
 }
-<h2>WystawOceny klasie: 
-    @Html.DisplayFor(model => model.klasa.symbol)
-     z przedmiotu:@Html.DisplayFor(model => model.nauczycielPrzedmiot.przedmiot.nazwa)</h2>
+<h2>Wystaw oceny klasie: @ViewBag.klasaSymbol</h2>
+<h3> z przedmiotu @Model.First().przedmiot.nazwa </h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
     <div>
-    <div class="form-group">
+   <!-- <div class="form-group">
         <label for="przedmiot" class="control-label">Przedmiot:</label>
-        <input type="text" class="form-control" id="przedmiot" value="przedmiot_nazwa" disabled>
+        <input type="text" class="form-control" id="przedmiot" value=Model.First().przedmiot.nazwa disabled>
     </div>
-
+       -->
     <div class="form-group">
         <label for="opis" class="control-label">Opis:</label>
         <input type="text" class="form-control" placeholder="Wprowadź opis..." id="opis">
@@ -34,45 +36,51 @@
                 </th>
                 <th> Nowa ocena</th>
             </tr>
-            @foreach (var u in Model.klasa.uczens)
+            @{ 
+                int i = 0;
+            }
+            @foreach (var o in Model)
             {
-              
+                @Html.HiddenFor(modelU => o.uczenID)
                 <tr>
                     <td>
-
-                        @Html.DisplayFor(modelU => u.Imie)
+                        
+                        @Html.DisplayFor(modelU => o.uczen.Imie)
+                        @Html.HiddenFor(modelU => o.uczenID)
 
                     </td>
                     <td>
-                        @Html.DisplayFor(modelU => u.Nazwisko)
+                        @Html.DisplayFor(modelU => o.uczen.Nazwisko)
                     </td>
                     <td>oceny_z_przemiotu</td>
                     <td>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked>1
+                                <input type="radio" name="[@i].wartosc" id="option1" autocomplete="off" checked>1
                             </label>
                             <label class="btn btn-default">
-                                <input type="radio" name="options" id="option2" autocomplete="off">2
+                                <input type="radio" name="[@i].wartosc" id="option2" autocomplete="off">2
                             </label>
                             <label class="btn btn-default">
-                                <input type="radio" name="options" id="option3" autocomplete="off">3
+                                <input type="radio" name="[@i].wartosc" id="option3" autocomplete="off">3
 
                             </label> <label class="btn btn-default">
-                                <input type="radio" name="options" id="option4" autocomplete="off">4
+                                <input type="radio" name="[@i].wartosc" id="option4" autocomplete="off">4
                             </label>
                             <label class="btn btn-default">
-                                <input type="radio" name="options" id="option5" autocomplete="off">5
+                                <input type="radio" name="[@i].wartosc" id="option5" autocomplete="off">5
                             </label>
                             <label class="btn btn-default">
-                                <input type="radio" name="options" id="option6" autocomplete="off">6
+                                <input type="radio" name="[@i].wartosc" id="option6" autocomplete="off">6
                             </label>
                             <label class="btn btn-default active" active>
-                                <input type="radio" name="options" id="option0" autocomplete="off" checked> Brak
+                                <input type="radio" name="[@i].wartosc" id="option0" autocomplete="off" checked> Brak
                             </label>
                         </div>
                     </td>
                 </tr>
+                i++;
+            
             }
         </table>
     
@@ -82,3 +90,4 @@
         </div>
     </div>
 </div>
+}

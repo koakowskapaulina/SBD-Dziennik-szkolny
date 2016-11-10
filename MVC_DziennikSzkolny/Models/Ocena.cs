@@ -22,5 +22,10 @@ namespace MVC_DziennikSzkolny.Models
         public double wartosc { get; set; }
         public string opis { get; set; }
 
+        public String ToString()
+        {
+           
+            return  uczen.Nazwisko + " " + wartosc;
+        }
     }
 }

@@ -44,7 +44,27 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
-            return View(klasaPrzedmiot);
+            Klasa klasa = db.Klasas.Find(klasaPrzedmiot.klasaID);
+            List<Ocena> nowe_oceny = new List<Ocena>();
+            foreach(Uczen u in klasa.uczens)
+            {
+                Ocena o = new Ocena();
+               
+                o.nauczycielID = nauczyciel.nauczycielID;
+                o.nauczyciel = nauczyciel;
+                o.przedmiotID = klasaPrzedmiot.nauczycielPrzedmiot.przedmiotID;
+                o.przedmiot = klasaPrzedmiot.nauczycielPrzedmiot.przedmiot;
+                o.uczenID = u.uczenID;
+                o.uczen = u;
+                nowe_oceny.Add(o);
+            }
+          //  ViewBag.klasaID = klasaPrzedmiot.klasaID;
+            ViewBag.klasaSymbol = klasaPrzedmiot.klasa.symbol;
+           // ViewBag.nauczyciel = nauczyciel.Nazwisko + " " + nauczyciel.Imie;
+         //   ViewBag.przedmiot = klasaPrzedmiot.nauczycielPrzedmiot.przedmiot;
+            //  ViewBag.nauczycielID = klasaPrzedmiot.nauczycielPrzedmiot.nauczycielID;
+            //  ViewBag.przedmiotID = klasaPrzedmiot.nauczycielPrzedmiot.przedmiotID;
+            return View(nowe_oceny);
         }
 
         [HttpPost]
@@ -52,12 +72,14 @@ namespace MVC_DziennikSzkolny.Controllers
 
         public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(IList<Ocena> oceny)
         {
-           /* foreach (Ocena o in oceny)
-            * { 
-            * zapisz kazda ocene do bazy z aktualna data
+            foreach (Ocena o in oceny)
+            {
+                // zapisz kazda ocene do bazy z aktualna data
+                o.data_wystawienia = DateTime.Today;
+                Console.WriteLine(o.uczen.Nazwisko);
             }
 
-            */
+           
 
             return RedirectToAction("Panel");
         }
