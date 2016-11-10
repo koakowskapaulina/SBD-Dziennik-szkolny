@@ -11,7 +11,8 @@ namespace MVC_DziennikSzkolny.Models
     {
         public int klasaID { get; set; }
 
-       // [Range(2010, 2020)]
+        // [Range(2010, 2020)]
+      
         public int rok_rozpoczecia_toku_ksztalcenia { get; set; }
         public String symbol { get; set; }
 

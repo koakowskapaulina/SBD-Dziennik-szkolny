@@ -41,7 +41,7 @@
     </div>
 <div>
     Lista uczniów:
-    <table>
+    <table class="table table-hover">
         @foreach (var item in Model.uczens)
         {
             <tr>
@@ -66,13 +66,17 @@
 </div>
 <div>
     Lista przedmiotów:
-    <table>
+    <table class="table table-hover">
         @foreach (var item in Model.przedmioty)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.przedmiot.nazwa)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.nauczyciel.Nazwisko)
+                    @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.nauczyciel.Imie)
+   </td>
 
 
                 <td>

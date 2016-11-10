@@ -8,7 +8,7 @@ namespace MVC_DziennikSzkolny.Models
     {
         public int uczenID { get; set; }
 
-    //    [DataType(dataType:DateTime)]
+        [DataType(DataType.Date)]
         public DateTime Data_urodzenia { get; set; }
 
         public int rodzicID { get; set; }

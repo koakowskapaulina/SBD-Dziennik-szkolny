@@ -15,7 +15,9 @@ namespace MVC_DziennikSzkolny.Models
         public string Nazwisko { get; set; }
         [StringLength(11)] [Required]
         public string Pesel { get; set; }
+
         [StringLength(9)]      [Required]
+        [DataType(DataType.PhoneNumber)]
         public string Nr_telefonu { get; set; }
 
         [Required]
@@ -23,6 +25,7 @@ namespace MVC_DziennikSzkolny.Models
         public string email { get; set; }
         [Required]
         [MinLength(5)]
+        [DataType(DataType.Password)]
         public string haslo { get; set; }
 
 
