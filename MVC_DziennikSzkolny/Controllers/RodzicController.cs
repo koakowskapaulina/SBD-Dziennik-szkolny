@@ -69,5 +69,6 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             return View(rodzic);
         }
+       
     }
 }

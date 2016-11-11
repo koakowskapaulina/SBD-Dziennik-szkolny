@@ -8,24 +8,19 @@
 }
 
 <table class="table table-hover">
-    <tr>
-        <th>Nazwa przedmiotu</th>
-        <th>Nauczyciel prowadzący</th>
-        <th>Strona przedmiotu</th>
-    </tr>
-    <tr>
-        <td>Matematyka</td>
-        <td>Anna Nowak</td>
-        <td><button type="button" class="btn btn-primary">Przejdź</button></td>
-    </tr>
-    <tr>
-        <td>Język polski</td>
-        <td>Jan Kowalski</td>
-        <td><button type="button" class="btn btn-primary">Przejdź</button></td>
-    </tr>
-    <tr>
-        <td>Przyroda</td>
-        <td>Iiks iksinski</td>
-        <td><button type="button" class="btn btn-primary">Przejdź</button></td>
-    </tr>
+
+
+    @foreach (var item in Model.klasa.przedmioty)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.przedmiot.nazwa)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "DetailsPrzedmiot", new { id = item.nauczycielPrzedmiot.przedmiot.przedmiotID }) |
+
+            </td>
+        </tr>
+    }
+
 </table>

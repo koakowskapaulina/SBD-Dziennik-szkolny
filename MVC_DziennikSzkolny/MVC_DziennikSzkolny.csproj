@@ -496,6 +496,7 @@
     <Content Include="Views\Nauczyciel\Uczniowie.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsUczen.cshtml" />
     <Content Include="Views\Nauczyciel\createoceny.cshtml" />
+    <Content Include="Views\Uczen\DetailsPrzedmiot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

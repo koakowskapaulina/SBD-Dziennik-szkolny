@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -30,7 +31,8 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Przedmioty()
         {
-            return View();
+            Uczen uczen = db.Uczniowie.Find(1);
+            return View(uczen);
         }
 
 
@@ -62,6 +64,20 @@ namespace MVC_DziennikSzkolny.Controllers
             ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie", uczen.rodzicID);
 
             return View(uczen);
+        }
+        public ActionResult DetailsPrzedmiot(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Przedmiot przedmiot = db.Przedmioty.Find(id);
+            if (przedmiot == null)
+            {
+                return HttpNotFound();
+            }
+            return View(przedmiot);
+
         }
 
     }
