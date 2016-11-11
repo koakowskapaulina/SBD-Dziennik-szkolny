@@ -495,7 +495,7 @@
     <Content Include="Views\Nauczyciel\DetailsPrzedmiot.cshtml" />
     <Content Include="Views\Nauczyciel\Uczniowie.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsUczen.cshtml" />
-    <Content Include="Views\Nauczyciel\createoceny.cshtml" />
+    <Content Include="Views\Nauczyciel\DOUSUNIECIAcreateoceny.cshtml" />
     <Content Include="Views\Uczen\DetailsPrzedmiot.cshtml" />
   </ItemGroup>
   <ItemGroup>

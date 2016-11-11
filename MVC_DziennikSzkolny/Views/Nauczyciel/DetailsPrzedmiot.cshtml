@@ -16,10 +16,15 @@
     }
     </div>
 <div>
-    
-    <div><h3>Treści udostępnione przez nauczycieli</h3>
-        <button class="btn btn-primary">Dodaj nowe materiały</button>
+    <div>
+        
+        <button class="btn btn-primary" data-toggle="modal" data-target="#nauczycielPrzedmiotDetailsModal">Dodaj nową treść</button>
 
+       
+       
+    </div>
+    <div><h3>Treści udostępnione przez nauczycieli</h3>
+        
         <div class="panel-group">
 
             <div class="panel panel-default">
@@ -64,7 +69,40 @@
     </div>
     <!--TODO: wyswetl materialy i przycisk dodaj maetrialy -->
 </div>
-<p>
-   
-  
-</p>
+
+
+<div class="modal fade" id="nauczycielPrzedmiotDetailsModal" tabindex="-1" role="dialog" aria-labelledby="nauczycielPrzedmiotDetailsModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="nauczycielPrzedmiotDetailsModalLabel">Nowa treść</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="nazwaTresci" class="control-label">Nazwa:</label>
+                        <input type="text" class="form-control" id="nazwaTresci">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="opisTresci" class="control-label">Opis:</label>
+                         <textarea class="form-control" rows="3" placeholder="Wprowadź opis..." id="opisTresci"></textarea>
+                    </div>
+
+                    <label class="control-label">Dodaj pliki</label>
+                    <input id="input-file" name="inputfile[]" type="file" multiple class="file-loading">
+                    <script>
+                $(document).on('ready', function () {
+                    $("#input-file").fileinput({ showCaption: false });
+                });
+                    </script>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-primary">Zapisz</button>
+            </div>
+        </div>
+    </div>
+</div>
