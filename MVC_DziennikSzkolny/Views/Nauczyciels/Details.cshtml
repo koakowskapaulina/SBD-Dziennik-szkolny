@@ -58,22 +58,24 @@
 </div>
 <div>
     Lista przedmiotów:
-    @foreach (var item in Model.przedmioty)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.przedmiot.nazwa)
-            </td>
+    <table class="table table-hover">
+        @foreach (var item in Model.przedmioty)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.przedmiot.nazwa)
+                </td>
 
 
-            <td>
-                @Html.ActionLink("Details", "Details", "Przedmiots", new { id = item.przedmiotID }, null) |
+                <td>
+                    @Html.ActionLink("Details", "Details", "Przedmiots", new { id = item.przedmiotID }, null) |
+                    @Html.ActionLink("Delete", "Delete", "ListaNauczycieliPrzedmiotus", new { id = item.ID }, null) |
+       
+                </td>
+            </tr>
 
-            </td>
-        </tr>
-
-    }
-
+        }
+    </table>
     @Html.ActionLink("Dodaj przedmiot", "AddPrzedmiot", "ListaNauczycieliPrzedmiotus", new { id = Model.nauczycielID}, null)
 
 </div>

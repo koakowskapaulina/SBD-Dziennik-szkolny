@@ -151,6 +151,7 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
+            //TODO: usunac powtarzajacych sie nauczycieli
             ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Nazwisko");
             ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa",przedmiot.przedmiotID);
           
@@ -170,7 +171,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Details", "Przedmiots", new { id = listaNauczycieliPrzedmiotu.przedmiotID });
             }
-
+             
             ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Nazwisko", listaNauczycieliPrzedmiotu.nauczycielID);
             ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa", listaNauczycieliPrzedmiotu.przedmiotID);
             return View(listaNauczycieliPrzedmiotu);
@@ -194,6 +195,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return HttpNotFound();
             }
             ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Nazwisko",nauczyciel.nauczycielID);
+            //TODO: usunac powtarzajace sie przedmioty
             ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa");
 
             return View();

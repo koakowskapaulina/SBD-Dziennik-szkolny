@@ -7,8 +7,9 @@
 @{
     Layout = "~/Views/Rodzic/_LayoutPanel.cshtml";
 }
+<h2>Wiadomosci</h2>
 
-widomości od nauczycieli
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,39 +27,16 @@ widomości od nauczycieli
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Odebrane <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
+                <li><a href="#">Napisz wiadmość</a></li>
+
             </ul>
-            <form class="navbar-form navbar-left">
+            <form class="navbar-form navbar-right">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Szukaj</button>
             </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
+
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
@@ -70,24 +48,25 @@ widomości od nauczycieli
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     1.09.2016 <em> Anna Nowak </em>   <b> Kalendarz roku szkolnego 2016/2017</b>
 
-</a>
+                </a>
             </h3>
         </div>
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 <h4>
                     <wiadomosc>
-                    - początek roku szkolnego 1 września 2016 r.
-                    - zimowa przerwa świąteczna 2016 r.
-                    - ferie zimowe 2017 woj. Lubelskie, Łódzkie, Podkarpackie, Pomorskie, Śląskie
-                    - ferie zimowe 2017 woj. Podlaskie, Warmińsko-Mazurskie
-                    - ferie zimowe 2017 woj. Kujawsko-Pomorskie, Lubuskie, Małopolskie, Świętokrzyskie, Wielkopolskie
-                    - ferie zimowe 2017 woj. Dolnośląskie, Mazowieckie, Opolskie, Zachodniopomorskie
-                    - wiosenna przerwa świąteczna 13 kwietnia 2017 r. - 18 kwietnia
-                    - koniec roku szkolnego 23 czerwca 2017 r. (wg. projektu nowego rozporządzenia MEN, które zapewne wejdzie w życie)
-                    - ferie letnie - wakacje
-                        </wiadomosc><br />
-                  <button class="btn btn-primary"  >Odpowiedz</button>
+                        - początek roku szkolnego 1 września 2016 r.
+                        - zimowa przerwa świąteczna 2016 r.
+                        - ferie zimowe 2017 woj. Lubelskie, Łódzkie, Podkarpackie, Pomorskie, Śląskie
+                        - ferie zimowe 2017 woj. Podlaskie, Warmińsko-Mazurskie
+                        - ferie zimowe 2017 woj. Kujawsko-Pomorskie, Lubuskie, Małopolskie, Świętokrzyskie, Wielkopolskie
+                        - ferie zimowe 2017 woj. Dolnośląskie, Mazowieckie, Opolskie, Zachodniopomorskie
+                        - wiosenna przerwa świąteczna 13 kwietnia 2017 r. - 18 kwietnia
+                        - koniec roku szkolnego 23 czerwca 2017 r. (wg. projektu nowego rozporządzenia MEN, które zapewne wejdzie w życie)
+                        - ferie letnie - wakacje
+                    </wiadomosc><br />
+                    <!--TODO: modal do odpowiedz-->
+                    <button class="btn btn-primary">Odpowiedz</button>
                 </h4>
             </div>
         </div>
@@ -125,7 +104,6 @@ widomości od nauczycieli
         </div>
     </div>
 </div>
-
 <script>
     $(document).ready(function () {
         $("#RodzicWiadomosci").addClass("active");
