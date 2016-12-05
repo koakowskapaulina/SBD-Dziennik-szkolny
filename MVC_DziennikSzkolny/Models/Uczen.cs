@@ -19,4 +19,6 @@ namespace MVC_DziennikSzkolny.Models
 
         public virtual ICollection<Ocena> oceny { get; set; }
     }
+    
+
 }

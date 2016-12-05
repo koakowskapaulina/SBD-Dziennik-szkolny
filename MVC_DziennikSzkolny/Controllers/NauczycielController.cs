@@ -60,6 +60,35 @@ namespace MVC_DziennikSzkolny.Controllers
             return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp => kp.nauczycielPrzedmiot.przedmiot).Include(l => l.klasa.uczens));
             
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public String Oceny(string przedmiotID,string uczenID,string opis,string options)
+        {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+               // return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+               // return Redirect("BrakUprawnien");
+            }
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+
+           /* Ocena o = new Ocena();
+            o.nauczycielID = nauczyciel.nauczycielID;
+            o.nauczyciel = nauczyciel;
+            o.przedmiotID = klasaPrzedmiot.nauczycielPrzedmiot.przedmiotID;
+            o.przedmiot = klasaPrzedmiot.nauczycielPrzedmiot.przedmiot;
+            o.uczenID = u.uczenID;
+            o.uczen = u;
+            //o.opis;
+            //o.wartosc;
+
+            db.Oceny.Add(o);
+            db.SaveChanges();*/
+
+            return przedmiotID+" "+ uczenID + " "+opis +" "+ options;
+        }
         public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(int ?id)//idPrzedmiotKlasa
         {
 

@@ -39,85 +39,97 @@
                    
                    
                     <table class="table table-hover">
-                      
 
-                            @foreach (var u in item.klasa.uczens)
 
+    @foreach (var u in item.klasa.uczens)
+
+    {
+
+        <tr>
+            <td>
+
+                @Html.DisplayFor(modelU => u.Imie)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelU => u.Nazwisko)
+            </td>
+            <td>oceny</td>
+            <td>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nauczycielOcenyModal" data-uczenID=@u.uczenID data-uczenNazwisko=@u.Nazwisko data-uczenImie=@u.Imie data-przedmiotID=@item.nauczycielPrzedmiot.przedmiot.przedmiotID data-przedmiot=@item.nauczycielPrzedmiot.przedmiot.nazwa>Wystaw ocenę</button>
+
+                <div class="modal fade" id="nauczycielOcenyModal" tabindex="-1" role="dialog" aria-labelledby="nauczycielOcenyModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="nauczycielOcenyModalLabel">Nowa ocena dla ucznia: nazwisko_imie</h4>
+                            </div>
+                            @using (Html.BeginForm())
                             {
+                                @Html.AntiForgeryToken()
+                                <div class="modal-body">
 
-                                <tr>
-                                    <td>
 
-                                        @Html.DisplayFor(modelU => u.Imie)
+                                               
+                                                <div class="form-group">
+                                                    <input name="przedmiotID" type="hidden" class="form-control">
+                                                </div>
 
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelU => u.Nazwisko)
-                                    </td>
-                                    <td>oceny</td>
-                                    <td> 
-                                        <!--TODO: nie jest dolaczony JS-->
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nauczycielOcenyModal" data-whatever="xxx">Wystaw ocenę</button>
-                                        
-                                        <div class="modal fade" id="nauczycielOcenyModal" tabindex="-1" role="dialog" aria-labelledby="nauczycielOcenyModalLabel">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="nauczycielOcenyModalLabel">Nowa ocena dla ucznia: nazwisko_imie</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label for="przedmiot" class="control-label">Przedmiot:</label>
-                                                                <input type="text" class="form-control" id="przedmiot" value="przedmiot_nazwa" disabled>
-                                                            </div>
 
-                                                            <div class="form-group">
-                                                                <label for="opis" class="control-label">Opis:</label>
-                                                                <input type="text" class="form-control" placeholder="Wprowadź opis..." id="opis">
-                                                            </div>
-                                                            
-                                                          <label for="ocenaRadio" class="control-label">Ocena:</label>
-                                                            <div class="btn-group" data-toggle="buttons" id="ocenaRadio">
-                                                                <label class="btn btn-default">
-                                                                    <input type="radio" name="options" id="option1" autocomplete="off" checked>1
-                                                                </label>
-                                                                <label class="btn btn-default">
-                                                                    <input type="radio" name="options" id="option2" autocomplete="off">2
-                                                                </label>
-                                                                <label class="btn btn-default">
-                                                                    <input type="radio" name="options" id="option3" autocomplete="off">3
 
-                                                                </label> <label class="btn btn-default">
-                                                                    <input type="radio" name="options" id="option4" autocomplete="off">4
-                                                                </label>
-                                                                <label class="btn btn-default">
-                                                                    <input type="radio" name="options" id="option5" autocomplete="off">5
-                                                                </label>
-                                                                <label class="btn btn-default">
-                                                                    <input type="radio" name="options" id="option6" autocomplete="off">6
-                                                                </label>
-                                                                
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <input name="uczenID" type="hidden" class="form-control">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="opis" class="control-label">Opis:</label>
+                                                    <input name="opis" type="text" class="form-control" placeholder="Wprowadź opis..." id="opis">
+                                                </div>
+
+                                                                <label for="ocenaRadio" class="control-label">Ocena:</label>
+                                                                <div class="btn-group" data-toggle="buttons" id="ocenaRadio">
+                                                                    <label class="btn btn-default">
+                                                                        <input type="radio" name="options" id="option1" autocomplete="off" value="1">1
+                                                                    </label>
+                                                                    <label class="btn btn-default">
+                                                                        <input type="radio" name="options" id="option2" autocomplete="off" value="2">2
+                                                                    </label>
+                                                                    <label class="btn btn-default">
+                                                                        <input type="radio" name="options" id="option3" autocomplete="off" value="3">3
+
+                                                                    </label> <label class="btn btn-default">
+                                                                        <input type="radio" name="options" id="option4" autocomplete="off" value="4">4
+                                                                    </label>
+                                                                    <label class="btn btn-default">
+                                                                        <input type="radio" name="options" id="option5" autocomplete="off" value="5">5
+                                                                    </label>
+                                                                    <label class="btn btn-default">
+                                                                        <input type="radio" name="options" id="option6" autocomplete="off" value="6">6
+                                                                    </label>
+
+                                                                </div>
+                                    
+                                                    
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
-                                                        <button type="button" class="btn btn-primary">Zapisz</button>
+                                                        <input type="submit" class="btn btn-primary" value="Zapisz"/>
+                                                        
                                                     </div>
                                                 </div>
+                            }
                                             </div>
                                         </div>
 
-                                   
-                                       
+                    </div>
+
                                     </td>
 
                                 </tr>
 
-                        }
-                    </table>
+                            }
+                        </table>
                 </div>
             </div>
 
@@ -129,4 +141,20 @@
     $(document).ready(function () {
         $("#menuOceny").addClass("active");
     });
+
+    $('#nauczycielOcenyModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var uczenID = button.data('uczenID') // Extract info from data-* attributes
+        var przedmiotID = button.data('przedmiotID')
+        var uczenNazwisko = button.data('uczenNazwisko') // Extract info from data-* attributes
+        var uczenImie = button.data('uczenImie') // Extract info from data-* attributes
+        var przedmiot = button.data('przedmiotNazwa')
+
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('Nowa ocena dla ucznia: ' + uczenNazwisko)//+' '+uczenImie +' z przedmiotu: '+przedmiot)
+        modal.find('#przedmiotID').val(przedmiotID)
+        modal.find('#uczenID').val(uczenID)
+    })
 </script>
