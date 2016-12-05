@@ -272,6 +272,14 @@
     <Compile Include="Migrations\201611101542244_zmianaTypuDaty.Designer.cs">
       <DependentUpon>201611101542244_zmianaTypuDaty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612052333075_data.cs" />
+    <Compile Include="Migrations\201612052333075_data.Designer.cs">
+      <DependentUpon>201612052333075_data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612052344598_www.cs" />
+    <Compile Include="Migrations\201612052344598_www.Designer.cs">
+      <DependentUpon>201612052344598_www.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -576,6 +584,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611101542244_zmianaTypuDaty.resx">
       <DependentUpon>201611101542244_zmianaTypuDaty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612052333075_data.resx">
+      <DependentUpon>201612052333075_data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612052344598_www.resx">
+      <DependentUpon>201612052344598_www.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -62,7 +62,7 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public String Oceny(string przedmiotID,string uczenID,string opis,string options)
+        public ActionResult Oceny(int przedmiotID,int uczenID,string opis,string options)
         {
             if (Request.Cookies["zalogowanyID"] == null)
             {
@@ -74,20 +74,20 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
 
-           /* Ocena o = new Ocena();
+            Ocena o = new Ocena();
             o.nauczycielID = nauczyciel.nauczycielID;
-            o.nauczyciel = nauczyciel;
-            o.przedmiotID = klasaPrzedmiot.nauczycielPrzedmiot.przedmiotID;
-            o.przedmiot = klasaPrzedmiot.nauczycielPrzedmiot.przedmiot;
-            o.uczenID = u.uczenID;
-            o.uczen = u;
-            //o.opis;
-            //o.wartosc;
+            o.przedmiotID = przedmiotID;
+            o.uczenID = uczenID;
+            o.opis = opis;
+            o.wartosc= Int32.Parse(options);
+            o.data_wystawienia = DateTime.Now;
 
             db.Oceny.Add(o);
-            db.SaveChanges();*/
+            db.SaveChanges();
 
-            return przedmiotID+" "+ uczenID + " "+opis +" "+ options;
+         
+            return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp => kp.nauczycielPrzedmiot.przedmiot).Include(l => l.klasa.uczens));
+
         }
         public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(int ?id)//idPrzedmiotKlasa
         {

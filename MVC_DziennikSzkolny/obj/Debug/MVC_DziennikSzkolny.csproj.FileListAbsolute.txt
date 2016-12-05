@@ -77,7 +77,8 @@ C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_Dzi
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.w.resources
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.ocena.resources
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.zmianaTypuDaty.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.data.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.www.resources
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.csproj.GenerateResource.Cache
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.dll
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.pdb
-C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.csprojResolveAssemblyReference.cache
