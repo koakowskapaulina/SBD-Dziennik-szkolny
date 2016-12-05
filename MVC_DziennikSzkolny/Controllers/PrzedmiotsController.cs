@@ -17,12 +17,22 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Przedmiots
         public ActionResult Index()
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             return View(db.Przedmioty.ToList());
         }
 
         // GET: Przedmiots/Details/5
         public ActionResult Details(int? id)
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +48,11 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Przedmiots/Create
         public ActionResult Create()
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             return View();
         }
 
@@ -61,6 +76,11 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Przedmiots/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -92,6 +112,11 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Przedmiots/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

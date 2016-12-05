@@ -497,6 +497,9 @@
     <Content Include="Views\Nauczyciel\DetailsUczen.cshtml" />
     <Content Include="Views\Nauczyciel\DOUSUNIECIAcreateoceny.cshtml" />
     <Content Include="Views\Uczen\DetailsPrzedmiot.cshtml" />
+    <Content Include="Views\Uczen\BrakUprawnien.cshtml" />
+    <Content Include="Views\Rodzic\BrakUprawnien.cshtml" />
+    <Content Include="Views\Nauczyciel\BrakUprawnien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

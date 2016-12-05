@@ -9,9 +9,17 @@ namespace MVC_DziennikSzkolny.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
+        
         public ActionResult Panel()
         {
-           
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
+            {
+                return Redirect("BrakUprawnien");
+            }
             return View();
             
         }

@@ -13,27 +13,66 @@ namespace MVC_DziennikSzkolny.Controllers
     {
 
         private  MyDBContext db = new MyDBContext();
-        int idNauczyciela = 1;
+     
         // GET: Nauczyciel
         public ActionResult Panel()
         {
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
             return View();
         }
         public ActionResult Profil()
         {
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             return View(nauczyciel);
         }
         public ActionResult Oceny()
         {
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
 
             return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp => kp.nauczycielPrzedmiot.przedmiot).Include(l => l.klasa.uczens));
             
         }
         public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(int ?id)//idPrzedmiotKlasa
         {
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(1);
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             
             if (id == null)
             {
@@ -85,23 +124,62 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Wiadomosci()
         {
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
             return View();
         }
         public ActionResult Ogloszenia()
         {
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
             return View();
         }
         public ActionResult Przedmioty()
         {
             //TODO : mozliwosc dodawania treści, plików i tworzenia testow
 
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
            
             return View(nauczyciel.przedmioty);
         }
 
         public ActionResult DetailsPrzedmiot(int ?id)
         {
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -118,7 +196,17 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET:
         public ActionResult EditProfil()
         {
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             return View(nauczyciel);
         }
 
@@ -141,7 +229,17 @@ namespace MVC_DziennikSzkolny.Controllers
 
         public ActionResult Uczniowie()//klasa wychowawcy
         {
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(idNauczyciela);
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             if(nauczyciel.klasa.Any() && nauczyciel.klasa!=null)//if nauczyciel jest wychowawcą
             {
                 ViewBag.wychowawstwo = "Wychowawca klasy " + nauczyciel.klasa.First().symbol;
@@ -156,6 +254,16 @@ namespace MVC_DziennikSzkolny.Controllers
 
         public ActionResult DetailsUczen(int? id)
         {
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -167,6 +275,10 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             return View(uczen);
 
+        }
+        public ActionResult BrakUprawnien()
+        {
+            return View();
         }
     }
 }

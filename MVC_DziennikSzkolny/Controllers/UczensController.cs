@@ -17,6 +17,11 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Uczens
         public ActionResult Index()
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             var uczniowie = db.Uczniowie.Include(u => u.klasa).Include(u => u.rodzic);
             return View(uczniowie.ToList());
         }
@@ -24,6 +29,12 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Uczens/Details/5
         public ActionResult Details(int? id)
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +50,12 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Uczens/Create
         public ActionResult Create()
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
+
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
             ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Nazwisko");
             return View();
@@ -66,6 +83,11 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Uczens/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -101,6 +123,11 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Uczens/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Request.Cookies["zalogowanyAdmin"] == null)
+            {
+                ViewBag.Message = "Musisz się zalogować";
+                return RedirectToAction("Logowanie", "User");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

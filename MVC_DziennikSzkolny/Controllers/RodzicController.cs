@@ -17,18 +17,44 @@ namespace MVC_DziennikSzkolny.Controllers
 
         public ActionResult Panel()
         {
-            
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("rodzic"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
             return View();
         }
         public ActionResult ProfilRodzica()
         {
             //TODO : możliwość zmiany emaila, hasła, telefonu
-            Rodzic rodzic = db.Rodzice.Find(1);
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("rodzic"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Rodzic rodzic = db.Rodzice.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             return View(rodzic);
         }
         public ActionResult ProfilUcznia()
         {
-            Rodzic rodzic = db.Rodzice.Find(1);
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("rodzic"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Rodzic rodzic = db.Rodzice.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
 
             IEnumerable<Uczen> uczniowie =db.Uczniowie.Where(a => a.rodzicID == rodzic.rodzicID).Include(u => u.klasa);
             
@@ -36,21 +62,57 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Oceny()
         {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("rodzic"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+            //TODO:
             return View();
         }
         public ActionResult Wiadomosci()
         {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("rodzic"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+            //TODO: 
             return View();
         }
         public ActionResult Ogloszenia()
         {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("rodzic"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+            //TODO:
             return View();
         }
 
         // GET:
         public ActionResult EditProfil()
         {
-            Rodzic rodzic = db.Rodzice.Find(1);
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("rodzic"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Rodzic rodzic = db.Rodzice.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             return View(rodzic);
         }
 
@@ -69,6 +131,10 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             return View(rodzic);
         }
-       
+        public ActionResult BrakUprawnien()
+        {
+            return View();
+        }
+
     }
 }

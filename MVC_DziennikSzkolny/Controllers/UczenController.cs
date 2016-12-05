@@ -17,22 +17,66 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Uczen
         public ActionResult Panel()
         {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("uczen"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
             return View();
         }
         public ActionResult Profil()
         {
             //TODO: możliwość zmiany e-maila i hasła,telefonu
-            Uczen uczen = db.Uczniowie.Find(1);
-            return View(uczen);
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("uczen"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            Uczen uczen = db.Uczniowie.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+                return View(uczen);
+            
+               
         }
         public ActionResult Oceny()
         {
-            return View();
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("uczen"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+            //TODO:
+            Uczen uczen = db.Uczniowie.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+                return View();
+           
         }
         public ActionResult Przedmioty()
         {
-            Uczen uczen = db.Uczniowie.Find(1);
-            return View(uczen);
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("uczen"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+
+            Uczen uczen = db.Uczniowie.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+                return View(uczen);
+          
         }
 
 
@@ -40,11 +84,24 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET:
         public ActionResult EditProfil()
         {
-            Uczen uczen=db.Uczniowie.Find(1);
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("uczen"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+
+
+            Uczen uczen = db.Uczniowie.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", uczen.klasaID);
             ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie", uczen.rodzicID);
 
             return View(uczen);
+           
+           
         }
 
         // POST: 
@@ -67,6 +124,16 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult DetailsPrzedmiot(int? id)
         {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("uczen"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -78,6 +145,10 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             return View(przedmiot);
 
+        }
+        public ActionResult BrakUprawnien()
+        {
+            return View();
         }
 
     }
