@@ -26,58 +26,38 @@
         <button type="button" class="btn btn-default btn-sm">5</button>
     </div>
 </div> -->
-Dziecko1:
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Język polski</h3>
+@foreach (var dziecko in Model.uczens)
+{
+     @dziecko.Imie
+    <div class="panel panel-default">
+        @foreach (var p in dziecko.klasa.przedmioty)
+        {
+            <div class="panel-heading">
+                <h3 class="panel-title">@p.nauczycielPrzedmiot.przedmiot.nazwa</h3>
+            </div>
+            <div class="panel-body">
+                @foreach (var o in dziecko.oceny.Where(oc => oc.przedmiotID == p.nauczycielPrzedmiot.przedmiotID))
+                {
+                   
+                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+                        @o.wartosc
+                       
+                    </button>
+                }
+               
+            </div>
+        }
     </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default btn-sm">2</button>
-        <button type="button" class="btn btn-default btn-sm">3</button>
-    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Przyroda</h3>
-    </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default btn-sm">1</button>
-        <button type="button" class="btn btn-default btn-sm">5</button>
-    </div>
-</div>
-Dziecko2:
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Matematyka</h3>
-    </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default btn-sm">3</button>
-        <button type="button" class="btn btn-default btn-sm">4</button>
-        <button type="button" class="btn btn-default btn-sm">6</button>
-        <button type="button" class="btn btn-default btn-sm">5</button>
-    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Język polski</h3>
-    </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default btn-sm">2</button>
-        <button type="button" class="btn btn-default btn-sm">3</button>
-    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Przyroda</h3>
-    </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default btn-sm">1</button>
-        <button type="button" class="btn btn-default btn-sm">5</button>
-    </div>
-</div>
+     
+   
+    
+}
 
 <script>
     $(document).ready(function () {
         $("#RodzicOceny").addClass("active");
+        $('[data-toggle="popover"]').popover()
     });
+   
 </script>

@@ -70,8 +70,9 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return Redirect("BrakUprawnien");
             }
-            //TODO:
-            return View();
+            Rodzic rodzic = db.Rodzice.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+
+            return View(rodzic);
         }
         public ActionResult Wiadomosci()
         {
