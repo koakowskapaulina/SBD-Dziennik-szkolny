@@ -55,9 +55,10 @@
                 @Html.DisplayFor(modelU => u.Nazwisko)
             </td>
             <td>
-                    @foreach (var o in u.oceny)
+                    @foreach (var o in u.oceny.Where(x=>x.przedmiotID==item.nauczycielPrzedmiot.przedmiotID))
                     {
-                        @Html.DisplayFor(modelO => o.wartosc)
+                        <button type="button" class="btn btn-default btn-sm">@Html.DisplayFor(modelO => o.wartosc)</button>
+                       
                     }
 
             </td>
