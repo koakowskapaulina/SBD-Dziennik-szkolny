@@ -10,5 +10,7 @@ namespace MVC_DziennikSzkolny.Models
         public int saleLekcyjneID { get; set; }
         public int numerSali { get; set; }
         public int pietro { get; set; }
+
+        public virtual ICollection<ZajetoscSalLekcyjnych> zajetoscSali { get; set; }
     }
 }

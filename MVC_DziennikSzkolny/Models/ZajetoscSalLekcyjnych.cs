@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,8 +15,9 @@ namespace MVC_DziennikSzkolny.Models
 
         
         public DayOfWeek dzienTygodnia { get; set; }
-        public TimeSpan poczatek { get; set; }
-        public TimeSpan koniec { get; set; }
+
+        [Range(1,6)]
+        public int numerGodzinyLekcyjnej { get; set; }
 
        
         public int nauczycielPrzedmiotID { get; set; }

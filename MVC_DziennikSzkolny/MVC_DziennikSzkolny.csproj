@@ -318,6 +318,10 @@
     <Compile Include="Migrations\201612071554371_saleID.Designer.cs">
       <DependentUpon>201612071554371_saleID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071706550_zmianagodzinylekcyjnej.cs" />
+    <Compile Include="Migrations\201612071706550_zmianagodzinylekcyjnej.Designer.cs">
+      <DependentUpon>201612071706550_zmianagodzinylekcyjnej.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -670,6 +674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071554371_saleID.resx">
       <DependentUpon>201612071554371_saleID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071706550_zmianagodzinylekcyjnej.resx">
+      <DependentUpon>201612071706550_zmianagodzinylekcyjnej.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

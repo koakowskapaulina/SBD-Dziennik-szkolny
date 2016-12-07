@@ -50,7 +50,7 @@ namespace MVC_DziennikSzkolny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "zajetoscSalLekcyjnychID,saleLekcyjneID,dzienTygodnia,poczatek,koniec,nauczycielPrzedmiotID,klasaID")] ZajetoscSalLekcyjnych zajetoscSalLekcyjnych)
+        public ActionResult Create([Bind(Include = "zajetoscSalLekcyjnychID,saleLekcyjneID,dzienTygodnia,numerGodzinyLekcyjnej,nauczycielPrzedmiotID,klasaID")] ZajetoscSalLekcyjnych zajetoscSalLekcyjnych)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace MVC_DziennikSzkolny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "zajetoscSalLekcyjnychID,saleLekcyjneID,dzienTygodnia,poczatek,koniec,nauczycielPrzedmiotID,klasaID")] ZajetoscSalLekcyjnych zajetoscSalLekcyjnych)
+        public ActionResult Edit([Bind(Include = "zajetoscSalLekcyjnychID,saleLekcyjneID,dzienTygodnia,numerGodzinyLekcyjnej,nauczycielPrzedmiotID,klasaID")] ZajetoscSalLekcyjnych zajetoscSalLekcyjnych)
         {
             if (ModelState.IsValid)
             {

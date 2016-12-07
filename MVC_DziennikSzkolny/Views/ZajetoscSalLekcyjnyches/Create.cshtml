@@ -32,18 +32,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.poczatek, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.numerGodzinyLekcyjnej, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.poczatek, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.poczatek, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.koniec, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.koniec, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.koniec, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.numerGodzinyLekcyjnej, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.numerGodzinyLekcyjnej, "", new { @class = "text-danger" })
             </div>
         </div>
 
