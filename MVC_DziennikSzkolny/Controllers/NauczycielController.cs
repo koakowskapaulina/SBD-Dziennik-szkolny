@@ -214,7 +214,7 @@ namespace MVC_DziennikSzkolny.Controllers
             db.Ogloszenia.Add(og);
             db.SaveChanges();
            
-            return View();
+            return View(nauczyciel.ogloszenia);
         }
         public ActionResult Przedmioty()
         {

@@ -6,7 +6,7 @@
     Layout = "~/Views/Nauczyciel/_LayoutPanel.cshtml";
 }
 <h2>Ogloszenia</h2>
-<!--TODO:-->
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nauczycielOgloszeniaModal">Nowe ogłoszenie</button>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   @foreach(var o in Model)
@@ -15,7 +15,7 @@
         <div class="panel-heading" role="tab" id="heading"@o.ogloszenieID>
             <h3 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href=#@o.ogloszenieID aria-expanded="true" aria-controls=@o.ogloszenieID>
-                  @o.data_wystawienia <b>@o.temat</b>
+                  @o.data_wystawienia <b>@o.temat</b> Dla klasy: @o.klasa.rok_rozpoczecia_toku_ksztalcenia @o.klasa.symbol
 
                 </a>
             </h3>

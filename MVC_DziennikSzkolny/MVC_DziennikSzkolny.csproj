@@ -296,6 +296,10 @@
     <Compile Include="Migrations\201612071155519_poprawka.Designer.cs">
       <DependentUpon>201612071155519_poprawka.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071402211_q.cs" />
+    <Compile Include="Migrations\201612071402211_q.Designer.cs">
+      <DependentUpon>201612071402211_q.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -621,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071155519_poprawka.resx">
       <DependentUpon>201612071155519_poprawka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071402211_q.resx">
+      <DependentUpon>201612071402211_q.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

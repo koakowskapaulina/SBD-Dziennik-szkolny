@@ -18,10 +18,11 @@ namespace MVC_DziennikSzkolny.Models
 
         public virtual ICollection<Uczen> uczens { get; set; }
         public int nauczycielID { get; set; }
-        public virtual Nauczyciel nauczyciel { get; set; }//wychowawca
+        public virtual Nauczyciel nauczyciel { get; set; }//wychowawca!
 
          public virtual ICollection<ListaPrzedmiotowKlasy> przedmioty { get; set; }
-       
+        public virtual ICollection<Ogloszenie> ogloszenia { get; set; }
+
 
     }
 }
