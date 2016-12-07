@@ -17,6 +17,7 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: ListaPrzedmiotowKlasies
         public ActionResult Index()
         {
+
             var listaKlasaPrzedmiot = db.listaKlasaPrzedmiot.Include(l => l.klasa).Include(l => l.nauczycielPrzedmiot);
       //      var listaKlasaPrzedmiot = db.listaKlasaPrzedmiot.Include(l => l.klasa).Include(l => l.nauczycielPrzedmiot).Include(l => l.nauczycielPrzedmiot.przedmiot).Include(l => l.nauczycielPrzedmiot.nauczyciel);
             //  return View(listaKlasaPrzedmiot.ToList());

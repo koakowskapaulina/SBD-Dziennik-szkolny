@@ -17,10 +17,13 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Klasas
         public ActionResult Index()
         {
-            if (Request.Cookies["zalogowanyAdmin"] == null)
+            if (Request.Cookies["zalogowanyID"] == null)
             {
-                ViewBag.Message = "Musisz się zalogować";
                 return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
+            {
+                return Redirect("BrakUprawnien");
             }
             var klasas = db.Klasas.Include(k => k.nauczyciel);
             return View(klasas.ToList());
@@ -29,10 +32,13 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Klasas/Details/5
         public ActionResult Details(int? id)
         {
-            if (Request.Cookies["zalogowanyAdmin"] == null)
+            if (Request.Cookies["zalogowanyID"] == null)
             {
-                ViewBag.Message = "Musisz się zalogować";
                 return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
+            {
+                return Redirect("BrakUprawnien");
             }
             if (id == null)
             {
@@ -50,10 +56,13 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Klasas/Create
         public ActionResult Create()
         {
-            if (Request.Cookies["zalogowanyAdmin"] == null)
+            if (Request.Cookies["zalogowanyID"] == null)
             {
-                ViewBag.Message = "Musisz się zalogować";
                 return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
+            {
+                return Redirect("BrakUprawnien");
             }
             ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Imie");
             return View();
@@ -80,10 +89,13 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Klasas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (Request.Cookies["zalogowanyAdmin"] == null)
+            if (Request.Cookies["zalogowanyID"] == null)
             {
-                ViewBag.Message = "Musisz się zalogować";
                 return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
+            {
+                return Redirect("BrakUprawnien");
             }
             if (id == null)
             {
@@ -119,10 +131,13 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: Klasas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (Request.Cookies["zalogowanyAdmin"] == null)
+            if (Request.Cookies["zalogowanyID"] == null)
             {
-                ViewBag.Message = "Musisz się zalogować";
                 return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
+            {
+                return Redirect("BrakUprawnien");
             }
             if (id == null)
             {

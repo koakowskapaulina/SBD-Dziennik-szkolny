@@ -166,9 +166,11 @@
     <Compile Include="Controllers\PrzedmiotsController.cs" />
     <Compile Include="Controllers\RodzicController.cs" />
     <Compile Include="Controllers\RodzicsController.cs" />
+    <Compile Include="Controllers\SaleLekcyjnesController.cs" />
     <Compile Include="Controllers\UczenController.cs" />
     <Compile Include="Controllers\UczensController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ZajetoscSalLekcyjnychesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -300,6 +302,22 @@
     <Compile Include="Migrations\201612071402211_q.Designer.cs">
       <DependentUpon>201612071402211_q.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071434191_zajetoscSal.cs" />
+    <Compile Include="Migrations\201612071434191_zajetoscSal.Designer.cs">
+      <DependentUpon>201612071434191_zajetoscSal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071437057_zajetoscSaljeszczeraz.cs" />
+    <Compile Include="Migrations\201612071437057_zajetoscSaljeszczeraz.Designer.cs">
+      <DependentUpon>201612071437057_zajetoscSaljeszczeraz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071549366_poprawkaNauczycielPrzedmiot.cs" />
+    <Compile Include="Migrations\201612071549366_poprawkaNauczycielPrzedmiot.Designer.cs">
+      <DependentUpon>201612071549366_poprawkaNauczycielPrzedmiot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071554371_saleID.cs" />
+    <Compile Include="Migrations\201612071554371_saleID.Designer.cs">
+      <DependentUpon>201612071554371_saleID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -310,8 +328,10 @@
     <Compile Include="Models\Ogloszenie.cs" />
     <Compile Include="Models\Przedmiot.cs" />
     <Compile Include="Models\Rodzic.cs" />
+    <Compile Include="Models\SaleLekcyjne.cs" />
     <Compile Include="Models\Uczen.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ZajetoscSalLekcyjnych.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -531,6 +551,16 @@
     <Content Include="Views\Rodzic\BrakUprawnien.cshtml" />
     <Content Include="Views\Nauczyciel\BrakUprawnien.cshtml" />
     <Content Include="Views\Admin\BrakUprawnien.cshtml" />
+    <Content Include="Views\SaleLekcyjnes\Create.cshtml" />
+    <Content Include="Views\SaleLekcyjnes\Delete.cshtml" />
+    <Content Include="Views\SaleLekcyjnes\Details.cshtml" />
+    <Content Include="Views\SaleLekcyjnes\Edit.cshtml" />
+    <Content Include="Views\SaleLekcyjnes\Index.cshtml" />
+    <Content Include="Views\ZajetoscSalLekcyjnyches\Create.cshtml" />
+    <Content Include="Views\ZajetoscSalLekcyjnyches\Delete.cshtml" />
+    <Content Include="Views\ZajetoscSalLekcyjnyches\Details.cshtml" />
+    <Content Include="Views\ZajetoscSalLekcyjnyches\Edit.cshtml" />
+    <Content Include="Views\ZajetoscSalLekcyjnyches\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">
@@ -628,6 +658,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071402211_q.resx">
       <DependentUpon>201612071402211_q.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071434191_zajetoscSal.resx">
+      <DependentUpon>201612071434191_zajetoscSal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071437057_zajetoscSaljeszczeraz.resx">
+      <DependentUpon>201612071437057_zajetoscSaljeszczeraz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071549366_poprawkaNauczycielPrzedmiot.resx">
+      <DependentUpon>201612071549366_poprawkaNauczycielPrzedmiot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071554371_saleID.resx">
+      <DependentUpon>201612071554371_saleID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

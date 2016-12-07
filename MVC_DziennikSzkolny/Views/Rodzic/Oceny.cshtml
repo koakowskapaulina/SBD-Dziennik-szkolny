@@ -6,26 +6,7 @@
 @{
     Layout = "~/Views/Rodzic/_LayoutPanel.cshtml";
 }
-<!--
-<script>
-    $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-});</script>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Matematyka</h3>
-    </div>
-    <div class="panel-body">
-        <!--TODO: oczywiscie scrypty nie dzialaja-->
-    <!--    <button type="button" class="btn btn-default btn-sm"  data-placement="bottom" data-toggle="popover" 
-                data-content="Data_wystawienia opis nauczyciel ..." >3</button>
 
-        <button type="button" class="btn btn-default btn-sm">3</button>
-        <button type="button" class="btn btn-default btn-sm">4</button>
-        <button type="button" class="btn btn-default btn-sm">6</button>
-        <button type="button" class="btn btn-default btn-sm">5</button>
-    </div>
-</div> -->
 @foreach (var dziecko in Model.uczens)
 {
      @dziecko.Imie
@@ -39,7 +20,7 @@
                 @foreach (var o in dziecko.oceny.Where(oc => oc.przedmiotID == p.nauczycielPrzedmiot.przedmiotID))
                 {
                    
-                        string s ="Data wystawienia:"+o.data_wystawienia.ToShortDateString()+ " Nauczyciela:" + o.nauczyciel.Nazwisko + " Opis:" + o.opis;
+                        string s ="Data wystawienia:"+o.data_wystawienia.ToShortDateString()+ " Nauczyciel:" + o.nauczyciel.Nazwisko + " Opis:" + o.opis;
                    
                         <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" 
                             data-content="@s">

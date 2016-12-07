@@ -1,0 +1,67 @@
+﻿@model MVC_DziennikSzkolny.Models.ZajetoscSalLekcyjnych
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Admin/_LayoutPanel.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ZajetoscSalLekcyjnych</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.klasa.symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klasa.symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nauczycielPrzedmiot.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nauczycielPrzedmiot.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salaLekcyjna.saleLekcyjneID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salaLekcyjna.saleLekcyjneID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dzienTygodnia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dzienTygodnia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poczatek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poczatek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.koniec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.koniec)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.zajetoscSalLekcyjnychID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
