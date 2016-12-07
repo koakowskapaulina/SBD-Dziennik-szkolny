@@ -89,68 +89,7 @@ namespace MVC_DziennikSzkolny.Controllers
             return View(db.listaKlasaPrzedmiot.Where(kp => kp.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID).Include(kp => kp.klasa).Include(kp => kp.nauczycielPrzedmiot).Include(kp => kp.nauczycielPrzedmiot.przedmiot).Include(l => l.klasa.uczens));
 
         }
-        public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(int ?id)//idPrzedmiotKlasa
-        {
-
-            if (Request.Cookies["zalogowanyID"] == null)
-            {
-                return RedirectToAction("Logowanie", "User");
-            }
-            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
-            {
-                return Redirect("BrakUprawnien");
-            }
-
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
-            
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ListaPrzedmiotowKlasy klasaPrzedmiot = db.listaKlasaPrzedmiot.Find(id);
-            if (klasaPrzedmiot == null)
-            {
-                return HttpNotFound();
-            }
-            Klasa klasa = db.Klasas.Find(klasaPrzedmiot.klasaID);
-            List<Ocena> nowe_oceny = new List<Ocena>();
-            foreach(Uczen u in klasa.uczens)
-            {
-                Ocena o = new Ocena();
-               
-                o.nauczycielID = nauczyciel.nauczycielID;
-                o.nauczyciel = nauczyciel;
-                o.przedmiotID = klasaPrzedmiot.nauczycielPrzedmiot.przedmiotID;
-                o.przedmiot = klasaPrzedmiot.nauczycielPrzedmiot.przedmiot;
-                o.uczenID = u.uczenID;
-                o.uczen = u;
-                nowe_oceny.Add(o);
-            }
-          //  ViewBag.klasaID = klasaPrzedmiot.klasaID;
-            ViewBag.klasaSymbol = klasaPrzedmiot.klasa.symbol;
-           // ViewBag.nauczyciel = nauczyciel.Nazwisko + " " + nauczyciel.Imie;
-         //   ViewBag.przedmiot = klasaPrzedmiot.nauczycielPrzedmiot.przedmiot;
-            //  ViewBag.nauczycielID = klasaPrzedmiot.nauczycielPrzedmiot.nauczycielID;
-            //  ViewBag.przedmiotID = klasaPrzedmiot.nauczycielPrzedmiot.przedmiotID;
-            return View(nowe_oceny);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        public ActionResult WystawOcenyKlasie/*(int ?idKlasa)*/(IList<Ocena> oceny)
-        {
-            foreach (Ocena o in oceny)
-            {
-                // zapisz kazda ocene do bazy z aktualna data
-                o.data_wystawienia = DateTime.Today;
-                Console.WriteLine(o.uczen.Nazwisko);
-            }
-
-           
-
-            return RedirectToAction("Panel");
-        }
+     
         public ActionResult Wiadomosci()
         {
 
@@ -367,6 +306,34 @@ namespace MVC_DziennikSzkolny.Controllers
                 return HttpNotFound();
             }
             return View(saleLekcyjne);
+        }
+        // GET: ZajetoscSalLekcyjnyches/Create
+        public ActionResult RezerwujSale()
+        {
+            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID");
+            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "saleLekcyjneID");
+            return View();
+        }
+
+        // POST: ZajetoscSalLekcyjnyches/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RezerwujSale([Bind(Include = "zajetoscSalLekcyjnychID,saleLekcyjneID,dzienTygodnia,numerGodzinyLekcyjnej,nauczycielPrzedmiotID,klasaID")] ZajetoscSalLekcyjnych zajetoscSalLekcyjnych)
+        {
+            if (ModelState.IsValid)
+            {
+                db.zajetoscSalLekcyjnych.Add(zajetoscSalLekcyjnych);
+                db.SaveChanges();
+                return RedirectToAction("Panel", "Nauczyciel");
+            }
+
+            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", zajetoscSalLekcyjnych.klasaID);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID", zajetoscSalLekcyjnych.nauczycielPrzedmiotID);
+            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "saleLekcyjneID", zajetoscSalLekcyjnych.saleLekcyjneID);
+            return View(zajetoscSalLekcyjnych);
         }
         public ActionResult BrakUprawnien()
         {

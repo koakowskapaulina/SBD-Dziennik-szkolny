@@ -343,6 +343,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\tablica-szkolna-620x350.jpg" />
     <Content Include="App_Data\tablica.jpg" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
@@ -515,7 +516,6 @@
     <Content Include="Views\Admin\_LayoutPanel.cshtml" />
     <Content Include="Views\Nauczyciel\Profil.cshtml" />
     <Content Include="Views\Nauczyciel\Oceny.cshtml" />
-    <Content Include="Views\Nauczyciel\WystawOcenyKlasie.cshtml" />
     <Content Include="Views\Nauczyciel\Ogloszenia.cshtml" />
     <Content Include="Views\Nauczyciel\Przedmioty.cshtml" />
     <Content Include="Views\Przedmiots\Create.cshtml" />
@@ -563,6 +563,7 @@
     <Content Include="Views\ZajetoscSalLekcyjnyches\Index.cshtml" />
     <Content Include="Views\Nauczyciel\Sale.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsSale.cshtml" />
+    <Content Include="Views\Nauczyciel\RezerwujSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

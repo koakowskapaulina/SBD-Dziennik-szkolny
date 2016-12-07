@@ -15,7 +15,10 @@ namespace MVC_DziennikSzkolny.Controllers
 
         public ActionResult Panel()
         {
+            if (Request.Cookies["zalogowanyRola"] == null) return RedirectToAction("Index", "Home");
+
             string rola = Request.Cookies["zalogowanyRola"].Value;
+           
             if (rola.Equals("admin"))
             {
                 return RedirectToAction("Panel","Admin");
