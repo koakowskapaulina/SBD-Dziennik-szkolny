@@ -280,6 +280,22 @@
     <Compile Include="Migrations\201612052344598_www.Designer.cs">
       <DependentUpon>201612052344598_www.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071059540_dodanieOgloszenia.cs" />
+    <Compile Include="Migrations\201612071059540_dodanieOgloszenia.Designer.cs">
+      <DependentUpon>201612071059540_dodanieOgloszenia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071140450_coskrzyczy.cs" />
+    <Compile Include="Migrations\201612071140450_coskrzyczy.Designer.cs">
+      <DependentUpon>201612071140450_coskrzyczy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071153426_ogloszeniawklasienauczyciel.cs" />
+    <Compile Include="Migrations\201612071153426_ogloszeniawklasienauczyciel.Designer.cs">
+      <DependentUpon>201612071153426_ogloszeniawklasienauczyciel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071155519_poprawka.cs" />
+    <Compile Include="Migrations\201612071155519_poprawka.Designer.cs">
+      <DependentUpon>201612071155519_poprawka.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
@@ -287,6 +303,7 @@
     <Compile Include="Models\MyDBContext.cs" />
     <Compile Include="Models\Nauczyciel.cs" />
     <Compile Include="Models\Ocena.cs" />
+    <Compile Include="Models\Ogloszenie.cs" />
     <Compile Include="Models\Przedmiot.cs" />
     <Compile Include="Models\Rodzic.cs" />
     <Compile Include="Models\Uczen.cs" />
@@ -298,6 +315,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\tablica.jpg" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -591,6 +609,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612052344598_www.resx">
       <DependentUpon>201612052344598_www.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071059540_dodanieOgloszenia.resx">
+      <DependentUpon>201612071059540_dodanieOgloszenia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071140450_coskrzyczy.resx">
+      <DependentUpon>201612071140450_coskrzyczy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071153426_ogloszeniawklasienauczyciel.resx">
+      <DependentUpon>201612071153426_ogloszeniawklasienauczyciel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071155519_poprawka.resx">
+      <DependentUpon>201612071155519_poprawka.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

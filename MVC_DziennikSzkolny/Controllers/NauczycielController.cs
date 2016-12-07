@@ -176,7 +176,44 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return Redirect("BrakUprawnien");
             }
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
 
+            //wybieramy listę klas które uczy zalogowany nauczyciel
+            ViewBag.klasaID = new SelectList(db.Klasas.Where(k=> k.przedmioty.Any(n=>n.nauczycielPrzedmiot.nauczycielID==nauczyciel.nauczycielID)), "klasaID", "symbol");
+
+            //ogloszenia wystawione przez zalogowanego nauczyciela
+            return View(nauczyciel.ogloszenia);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Ogloszenia(string temat, string tresc, int klasaID)
+        {
+
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+
+            //wybieramy listę klas które uczy zalogowany nauczyciel
+            ViewBag.klasaID = new SelectList(db.Klasas.Where(k => k.przedmioty.Any(n => n.nauczycielPrzedmiot.nauczycielID == nauczyciel.nauczycielID)), "klasaID", "symbol");
+
+            Ogloszenie og = new Ogloszenie();
+
+            og.nauczycielID = nauczyciel.nauczycielID;
+            og.data_wystawienia = DateTime.Now;
+            og.klasaID = klasaID;
+            og.temat = temat;
+            og.tresc = tresc;
+         
+            db.Ogloszenia.Add(og);
+            db.SaveChanges();
+           
             return View();
         }
         public ActionResult Przedmioty()

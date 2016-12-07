@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MVC_DziennikSzkolny.Models.Ogloszenie>
 @{
     ViewBag.Title = "Ogloszenia";
 }
@@ -7,8 +7,30 @@
 }
 <h2>Ogloszenia</h2>
 <!--TODO:-->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nauczycielOgloszeniaModal" data-whatever="xxx">Nowe ogłoszenie</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nauczycielOgloszeniaModal">Nowe ogłoszenie</button>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  @foreach(var o in Model)
+  { 
+     <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading"@o.ogloszenieID>
+            <h3 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href=#@o.ogloszenieID aria-expanded="true" aria-controls=@o.ogloszenieID>
+                  @o.data_wystawienia <b>@o.temat</b>
 
+                </a>
+            </h3>
+        </div>
+        <div id=@o.ogloszenieID class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading"@o.ogloszenieID>
+            <div class="panel-body">
+                <h4>
+                    @o.tresc
+                </h4>
+            </div>
+        </div>
+    </div>
+  }
+</div>
+<!--
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -68,7 +90,7 @@
         </div>
     </div>
 </div>
-
+-->
 
 <div class="modal fade" id="nauczycielOgloszeniaModal" tabindex="-1" role="dialog" aria-labelledby="nauczycielOgloszeniaModalLabel">
     <div class="modal-dialog" role="document">
@@ -77,28 +99,39 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="nauczycielOgloszeniaModalLabel">Nowa ogłoszenie dla rodziców</h4>
             </div>
-            <div class="modal-body">
-                <form>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="modal-body">
+                    
+
                     <div class="form-group">
                         <label for="tematOgloszenia" class="control-label">Temat:</label>
-                        <input type="text" class="form-control" id="tematOgloszenia" >
+                        <input name="temat" type="text" class="form-control" id="tematOgloszenia">
                     </div>
 
                     <div class="form-group">
                         <label for="opisOgloszenia" class="control-label">Opis:</label>
-                     
-                        <textarea class="form-control" rows="3"  placeholder="Wprowadź opis..." id="opisOgloszenia"></textarea>
-                      </div>
 
-                    
+                        <textarea name="tresc" class="form-control" rows="3" placeholder="Wprowadź opis..." id="opisOgloszenia"></textarea>
+                    </div>
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
-                <button type="button" class="btn btn-primary">Zapisz</button>
-            </div>
+                    <div class="form-group">
+                        <label for="klasaID" class="control-label">Dla rodziców uczniów klasy:</label>
+                        @Html.DropDownList("klasaID", null, htmlAttributes: new { @class = "form-control" })
+                       
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                    <input type="submit" class="btn btn-primary" value="Zapisz" />
+                </div>
+            }
         </div>
+
     </div>
 </div>
 <script>

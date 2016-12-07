@@ -83,3 +83,7 @@ C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_Dzi
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.dll
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.pdb
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.csprojResolveAssemblyReference.cache
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.dodanieOgloszenia.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.coskrzyczy.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.ogloszeniawklasienauczyciel.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.poprawka.resources

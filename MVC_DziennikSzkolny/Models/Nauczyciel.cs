@@ -19,7 +19,7 @@ namespace MVC_DziennikSzkolny.Models
         public virtual ICollection<Ocena> oceny { get; set; }
 
            public virtual ICollection<ListaNauczycieliPrzedmiotu> przedmioty { get; set; }
-       
 
+        public virtual ICollection<Ogloszenie> ogloszenia { get; set; }
     }
 }
