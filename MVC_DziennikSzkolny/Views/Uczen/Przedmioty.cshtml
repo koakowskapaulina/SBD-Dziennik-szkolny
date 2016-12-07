@@ -13,17 +13,17 @@
     @foreach (var item in Model.klasa.przedmioty)
     {
         <tr>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.nauczycielPrzedmiot.przedmiot.nazwa)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "DetailsPrzedmiot", new { id = item.nauczycielPrzedmiot.przedmiot.przedmiotID }) |
+                @Html.ActionLink( item.nauczycielPrzedmiot.przedmiot.nazwa, "DetailsPrzedmiot", new { id = item.nauczycielPrzedmiot.przedmiot.przedmiotID }) 
 
             </td>
         </tr>
     }
 
 </table>
+
+
 
 <script>
     $(document).ready(function () {

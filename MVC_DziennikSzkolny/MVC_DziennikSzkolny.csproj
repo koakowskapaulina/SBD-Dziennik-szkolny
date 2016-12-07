@@ -540,12 +540,10 @@
     <Content Include="Views\ListaPrzedmiotowKlasies\AddKlasa.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddPrzedmiot.cshtml" />
     <Content Include="Views\Nauczyciel\EditProfil.cshtml" />
-    <Content Include="Views\Uczen\EditProfil.cshtml" />
     <Content Include="Views\Rodzic\EditProfil.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsPrzedmiot.cshtml" />
     <Content Include="Views\Nauczyciel\Uczniowie.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsUczen.cshtml" />
-    <Content Include="Views\Nauczyciel\DOUSUNIECIAcreateoceny.cshtml" />
     <Content Include="Views\Uczen\DetailsPrzedmiot.cshtml" />
     <Content Include="Views\Uczen\BrakUprawnien.cshtml" />
     <Content Include="Views\Rodzic\BrakUprawnien.cshtml" />

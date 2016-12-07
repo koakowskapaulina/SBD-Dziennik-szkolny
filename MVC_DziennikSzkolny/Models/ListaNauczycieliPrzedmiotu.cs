@@ -15,12 +15,5 @@ namespace MVC_DziennikSzkolny.Models
         public int przedmiotID { get; set; }
         public virtual Przedmiot przedmiot { get; set; }
 
-
-
-        override
-        public String ToString()
-        {
-            return nauczyciel.Nazwisko + " " + przedmiot.nazwa;
-        }
     }
 }

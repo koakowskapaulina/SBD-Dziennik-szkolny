@@ -7,33 +7,10 @@
 }
     
 <div>
-    <h4>Uczen</h4>
+    <h4>Dane ucznia</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            Klasa
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.klasa.symbol)
-        </dd>
-
-        <dt>
-            Imię rodzica
-        </dt>
-
-        <dd>
-
-            @Html.DisplayFor(model => model.rodzic.Imie)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Data_urodzenia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Data_urodzenia)
-        </dd>
+      
 
         <dt>
             @Html.DisplayNameFor(model => model.Imie)
@@ -60,7 +37,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nr_telefonu)
+            Numer telefonu
         </dt>
 
         <dd>
@@ -74,15 +51,36 @@
         <dd>
             @Html.DisplayFor(model => model.email)
         </dd>
+        <dt>
+            Data urodzenia
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Data_urodzenia)
+        </dd>
+        <dt>
+            Klasa
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.klasa.rok_rozpoczecia_toku_ksztalcenia)
+            @Html.DisplayFor(model => model.klasa.symbol)
+        </dd>
+
+        <dt>
+            Rodzic
+        </dt>
+
+        <dd>
+
+            @Html.DisplayFor(model => model.rodzic.Imie)
+            @Html.DisplayFor(model => model.rodzic.Nazwisko)
+        </dd>
+
+      
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "EditProfil", new { id = Model.uczenID }) |
-    
-</p>
 
 
 <script>

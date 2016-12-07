@@ -14,60 +14,10 @@
             @Html.DisplayFor(modelN => n.nauczyciel.Imie)
 </ul>
     }
-    </div>
+   </div>
 <div>
-    
-    <div><h3>Treści udostępnione przez nauczycieli</h3>
-       
-        <div class="panel-group">
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Treść1</div>
-                <div class="panel-body">
-                    
-                        Informatyka – dyscyplina nauki zaliczana do nauk ścisłych oraz techniki
-                        zajmująca się przetwarzaniem informacji, w tym również technologiami
-                        przetwarzania informacji oraz technologiami wytwarzania systemów przetwarzających
-                        informacje. Początkowo stanowiła część matematyki, później rozwinęła się do odrębnej
-                        dyscypliny – pozostaje jednak nadal w ścisłej relacji z matematyką, która dostarcza
-                        informatyce podstaw teoretycznych.
-                    
-                </div></div>
-        
-        <div class="panel panel-default">
-
-        
-                <div class="panel-heading">Treść2</div>
-            <div class="panel-body">
-                Załączone pliki:
-                <ul>plik1</ul>
-                <ul>plik2</ul>
-                <ul>plki3</ul>
-                </div>
-
-            </div>
-        <div class="panel panel-default">
-
-          
-                <div class="panel-heading">Treść3</div>
-            <div class="panel-body">
-               
-                    Programowanie komputerów – proces projektowania, tworzenia, testowania i
-                    utrzymywania kodu źródłowego programów komputerowych lub urządzeń mikroprocesorowych
-                    (mikrokontrolery).
-               
-                </div>
-            </div>
-            </div>
-   
-    </div>
-
+    @Html.ActionLink("Wróć do listy przedmiotów", "Przedmioty")
 </div>
-<p>
-   
-  
-</p>
-
 <script>
     $(document).ready(function () {
         $("#UczenPrzedmioty").addClass("active");

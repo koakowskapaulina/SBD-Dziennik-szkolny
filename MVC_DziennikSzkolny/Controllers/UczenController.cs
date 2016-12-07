@@ -81,47 +81,7 @@ namespace MVC_DziennikSzkolny.Controllers
 
 
 
-        // GET:
-        public ActionResult EditProfil()
-        {
-            if (Request.Cookies["zalogowanyID"] == null)
-            {
-                return RedirectToAction("Logowanie", "User");
-            }
-            if (!Request.Cookies["zalogowanyRola"].Value.Equals("uczen"))
-            {
-                return Redirect("BrakUprawnien");
-            }
-
-
-
-            Uczen uczen = db.Uczniowie.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
-            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", uczen.klasaID);
-            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie", uczen.rodzicID);
-
-            return View(uczen);
-           
-           
-        }
-
-        // POST: 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditProfil([Bind(Include = "uczenID,Data_urodzenia,rodzicID,klasaID,Imie,Nazwisko,Pesel,Nr_telefonu,email,haslo")] Uczen uczen)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(uczen).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Profil");
-            }
-            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", uczen.klasaID);
-            ViewBag.rodzicID = new SelectList(db.Rodzice, "rodzicID", "Imie", uczen.rodzicID);
-
-            return View(uczen);
-        }
+       
         public ActionResult DetailsPrzedmiot(int? id)
         {
             if (Request.Cookies["zalogowanyID"] == null)
