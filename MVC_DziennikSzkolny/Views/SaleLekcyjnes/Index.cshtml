@@ -9,6 +9,9 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Zarezerwuj sale", "Create", "ZajetoscSalLekcyjnyches")
+
+
 </p>
 <table class="table">
     <tr>
@@ -32,8 +35,8 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.saleLekcyjneID }) |
             @Html.ActionLink("Details", "Details", new { id=item.saleLekcyjneID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.saleLekcyjneID })
-        </td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.saleLekcyjneID })
+         </td>
     </tr>
 }
 

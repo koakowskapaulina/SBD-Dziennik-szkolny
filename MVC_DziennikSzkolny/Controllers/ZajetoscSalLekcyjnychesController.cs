@@ -56,7 +56,7 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 db.zajetoscSalLekcyjnych.Add(zajetoscSalLekcyjnych);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","SaleLekcyjnes");
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", zajetoscSalLekcyjnych.klasaID);
@@ -136,5 +136,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             base.Dispose(disposing);
         }
+
+      
     }
 }
