@@ -59,7 +59,7 @@ namespace MVC_DziennikSzkolny.Controllers
 
             //TODO:
             Uczen uczen = db.Uczniowie.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
-                return View();
+                return View(uczen);
            
         }
         public ActionResult Przedmioty()

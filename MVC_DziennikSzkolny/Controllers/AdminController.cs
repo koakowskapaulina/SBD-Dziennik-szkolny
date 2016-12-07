@@ -23,5 +23,9 @@ namespace MVC_DziennikSzkolny.Controllers
             return View();
             
         }
+        public ActionResult BrakUprawnien()
+        {
+            return View();
+        }
     }
 }

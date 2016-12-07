@@ -39,8 +39,10 @@
                 @foreach (var o in dziecko.oceny.Where(oc => oc.przedmiotID == p.nauczycielPrzedmiot.przedmiotID))
                 {
                    
-                    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-sagittis lacus vel augue laoreet rutrum faucibus.">
+                        string s ="Data wystawienia:"+o.data_wystawienia.ToShortDateString()+ " Nauczyciela:" + o.nauczyciel.Nazwisko + " Opis:" + o.opis;
+                   
+                        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" 
+                            data-content="@s">
                         @o.wartosc
                        
                     </button>
@@ -50,7 +52,7 @@ sagittis lacus vel augue laoreet rutrum faucibus.">
         }
     </div>
      
-   
+ 
     
 }
 

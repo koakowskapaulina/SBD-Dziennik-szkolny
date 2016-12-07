@@ -6,41 +6,33 @@
 @{
     Layout = "~/Views/Uczen/_LayoutPanel.cshtml";
 }
-   
-   <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Matematyka</h3>
-    </div>
-    <div class="panel-body" >
-        <button type="button" class="btn btn-default btn-sm">3</button>
-        <button type="button" class="btn btn-default btn-sm">4</button>
-        <button type="button" class="btn btn-default btn-sm">6</button>
-        <button type="button" class="btn btn-default btn-sm">5</button>
-    </div>
-</div>
-
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Język polski</h3>
-    </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default btn-sm">2</button>
-        <button type="button" class="btn btn-default btn-sm">3</button>
-    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Przyroda</h3>
-    </div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-default btn-sm">1</button>
-        <button type="button" class="btn btn-default btn-sm">5</button>
-    </div>
+    @foreach (var p in Model.klasa.przedmioty)
+    {
+
+        <div class="panel-heading">
+            <h3 class="panel-title">@p.nauczycielPrzedmiot.przedmiot.nazwa</h3>
+        </div>
+        <div class="panel-body">
+            @foreach (var o in Model.oceny.Where(oc => oc.przedmiotID == p.nauczycielPrzedmiot.przedmiotID))
+            {
+
+                string s = "Nazwisko_nauczyciela:" + o.nauczyciel.Nazwisko + "_Opis:" + o.opis;
+
+                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom"
+                        data-content=@s>
+                    @o.wartosc
+
+                </button>
+            }
+
+        </div>
+    }
 </div>
 
-
-<script>
-    $(document).ready(function () {
-        $("#UczenOceny").addClass("active");
-    });
-</script>
+    <script>
+        $(document).ready(function () {
+            $("#UczenOceny").addClass("active");
+            $('[data-toggle="popover"]').popover()
+        });
+    </script>
