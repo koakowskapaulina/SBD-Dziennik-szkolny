@@ -27,7 +27,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 {
                     HttpCookie cookie1;
                     cookie1 = new HttpCookie("zalogowanyID");
-                    cookie1.Expires = DateTime.Now.AddSeconds(60);
+                    cookie1.Expires = DateTime.Now.AddSeconds(600);
                     cookie1.Value = "admin";
                     Response.Cookies.Add(cookie1);
 
@@ -47,7 +47,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 {
                     HttpCookie cookie1;
                     cookie1 = new HttpCookie("zalogowanyID");
-                    cookie1.Expires = DateTime.Now.AddSeconds(60);
+                    cookie1.Expires = DateTime.Now.AddSeconds(600);
                     cookie1.Value = zalogowanyUczen.uczenID.ToString();
                     Response.Cookies.Add(cookie1);
 
@@ -125,6 +125,19 @@ namespace MVC_DziennikSzkolny.Controllers
             }
         }
 
+        public ActionResult Wylogowanie()
+        {
+            HttpCookie cookie1;
+            cookie1 = new HttpCookie("zalogowanyID");
+            cookie1.Expires = DateTime.Now.AddYears(-10);
+            Response.Cookies.Add(cookie1);
 
+            HttpCookie cookie2;
+            cookie2 = new HttpCookie("zalogowanyRola");
+            cookie2.Expires = DateTime.Now.AddYears(-10);
+            Response.Cookies.Add(cookie2);
+
+            return RedirectToAction("Index","Home");
+        }
     }
 }

@@ -28,9 +28,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+                  @if (@Request.Cookies["zalogowanyID"] == null)
+                    {
+                    <li >@Html.ActionLink("Zaloguj się", "Logowanie", "User")</li>
+                  }
+                  else
+                  {
+                      string s ="Zalogowano jako: "+@Request.Cookies["zalogowanyRola"].Value;
+                    <li>@Html.ActionLink(s, "Panel", "Home")</li>
+                    <li>@Html.ActionLink("Wyloguj się", "Wylogowanie", "User")</li>
+                  }
                 </ul>
             </div>
         </div>

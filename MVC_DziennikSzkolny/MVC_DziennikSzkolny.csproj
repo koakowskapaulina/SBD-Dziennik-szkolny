@@ -477,8 +477,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Logowanie.cshtml" />
     <Content Include="Views\Uczen\Panel.cshtml" />
@@ -490,7 +488,6 @@
     <Content Include="Views\Rodzic\ProfilRodzica.cshtml" />
     <Content Include="Views\Rodzic\ProfilUcznia.cshtml" />
     <Content Include="Views\Rodzic\Oceny.cshtml" />
-    <Content Include="Views\Rodzic\Wiadomosci.cshtml" />
     <Content Include="Views\Rodzic\Ogloszenia.cshtml" />
     <Content Include="Views\Uczen\_LayoutPanel.cshtml" />
     <Content Include="Views\Rodzic\_LayoutPanel.cshtml" />
@@ -519,7 +516,6 @@
     <Content Include="Views\Nauczyciel\Profil.cshtml" />
     <Content Include="Views\Nauczyciel\Oceny.cshtml" />
     <Content Include="Views\Nauczyciel\WystawOcenyKlasie.cshtml" />
-    <Content Include="Views\Nauczyciel\Wiadomosci.cshtml" />
     <Content Include="Views\Nauczyciel\Ogloszenia.cshtml" />
     <Content Include="Views\Nauczyciel\Przedmioty.cshtml" />
     <Content Include="Views\Przedmiots\Create.cshtml" />
@@ -565,6 +561,8 @@
     <Content Include="Views\ZajetoscSalLekcyjnyches\Details.cshtml" />
     <Content Include="Views\ZajetoscSalLekcyjnyches\Edit.cshtml" />
     <Content Include="Views\ZajetoscSalLekcyjnyches\Index.cshtml" />
+    <Content Include="Views\Nauczyciel\Sale.cshtml" />
+    <Content Include="Views\Nauczyciel\DetailsSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

@@ -13,18 +13,28 @@ namespace MVC_DziennikSzkolny.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Panel()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            string rola = Request.Cookies["zalogowanyRola"].Value;
+            if (rola.Equals("admin"))
+            {
+                return RedirectToAction("Panel","Admin");
+            }
+            else if (rola.Equals("uczen"))
+            {
+                return RedirectToAction("Panel", "Uczen");
+            }
+            else if (rola.Equals("rodzic"))
+            {
+                return RedirectToAction("Panel", "Rodzic");
+            }
+            else if (rola.Equals("nauczyciel"))
+            {
+                return RedirectToAction("Panel", "Nauczyciel");
+            }
+            return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+    
     }
 }

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MVC_DziennikSzkolny.Models.SaleLekcyjne>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Nauczyciel/_LayoutPanel.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+   
+    @Html.ActionLink("Zarezerwuj sale", "Create", "ZajetoscSalLekcyjnyches")
+
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.numerSali)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pietro)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.numerSali)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pietro)
+            </td>
+            <td>
+              
+                @Html.ActionLink("Details", "DetailsSale", new { id = item.saleLekcyjneID }) |
+             
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    $(document).ready(function () {
+        $("#menuSale").addClass("active");
+    });
+</script>

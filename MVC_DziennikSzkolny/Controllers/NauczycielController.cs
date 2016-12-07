@@ -342,6 +342,32 @@ namespace MVC_DziennikSzkolny.Controllers
             return View(uczen);
 
         }
+        public ActionResult Sale()
+        {
+           
+            return View(db.saleLekcyjne.ToList());
+        }
+        public ActionResult DetailsSale(int? id)
+        {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SaleLekcyjne saleLekcyjne = db.saleLekcyjne.Find(id);
+            if (saleLekcyjne == null)
+            {
+                return HttpNotFound();
+            }
+            return View(saleLekcyjne);
+        }
         public ActionResult BrakUprawnien()
         {
             return View();
