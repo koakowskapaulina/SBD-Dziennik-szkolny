@@ -25,7 +25,7 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return Redirect("BrakUprawnien");
             }
-            var uczniowie = db.Uczniowie.Include(u => u.klasa).Include(u => u.rodzic);
+            var uczniowie = db.Uczniowie.Include(u => u.klasa).Include(u => u.rodzic).OrderBy(a=>a.Nazwisko);
             return View(uczniowie.ToList());
         }
 
