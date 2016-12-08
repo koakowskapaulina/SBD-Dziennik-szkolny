@@ -12,9 +12,7 @@ namespace MVC_DziennikSzkolny.Controllers
     public class UczenController : Controller
     {
         private MyDBContext db = new MyDBContext();
-
-
-        // GET: Uczen
+        
         public ActionResult Panel()
         {
             if (Request.Cookies["zalogowanyID"] == null)
@@ -30,8 +28,7 @@ namespace MVC_DziennikSzkolny.Controllers
         }
         public ActionResult Profil()
         {
-            //TODO: możliwość zmiany e-maila i hasła,telefonu
-
+           
             if (Request.Cookies["zalogowanyID"] == null)
             {
                 return RedirectToAction("Logowanie", "User");
@@ -57,7 +54,7 @@ namespace MVC_DziennikSzkolny.Controllers
                 return Redirect("BrakUprawnien");
             }
 
-            //TODO:
+            
             Uczen uczen = db.Uczniowie.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
                 return View(uczen);
            

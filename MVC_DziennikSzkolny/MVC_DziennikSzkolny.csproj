@@ -539,8 +539,6 @@
     <Content Include="Views\ListaPrzedmiotowKlasies\Index.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddKlasa.cshtml" />
     <Content Include="Views\ListaPrzedmiotowKlasies\AddPrzedmiot.cshtml" />
-    <Content Include="Views\Nauczyciel\EditProfil.cshtml" />
-    <Content Include="Views\Rodzic\EditProfil.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsPrzedmiot.cshtml" />
     <Content Include="Views\Nauczyciel\Uczniowie.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsUczen.cshtml" />

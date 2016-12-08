@@ -12,27 +12,10 @@
 @foreach (var item in Model)
 {
     <div>
-        <h4>Uczen:</h4>
+        <h4>Uczeń:</h4>
         <hr />
         <dl class="dl-horizontal">
-            <dt>
-                Klasa
-            </dt>
-
-            <dd>
-               @Html.DisplayFor(modelItem => item.klasa.symbol)
-            </dd>
-
-         
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Data_urodzenia)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(modelItem => item.Data_urodzenia)
-            </dd>
-
+           
             <dt>
                 @Html.DisplayNameFor(model => model.Imie)
             </dt>
@@ -58,7 +41,14 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Nr_telefonu)
+               Data urodzenia
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Data_urodzenia)
+            </dd>
+            <dt>
+                Numer telefonu
             </dt>
 
             <dd>
@@ -72,6 +62,16 @@
             <dd>
                 @Html.DisplayFor(modelItem => item.email)
             </dd>
+
+            <dt>
+                Klasa
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.klasa.symbol)
+            </dd>
+
+
 
 
 

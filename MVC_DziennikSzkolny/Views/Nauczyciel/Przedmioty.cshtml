@@ -16,12 +16,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.przedmiot.nazwa)
+                @Html.ActionLink(item.przedmiot.nazwa, "DetailsPrzedmiot", new { id = item.przedmiot.przedmiotID })
+
             </td>
-            <td>
-                @Html.ActionLink("Details", "DetailsPrzedmiot", new { id = item.przedmiotID }) |
-              
-            </td>
+
         </tr>
     }
 

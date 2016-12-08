@@ -9,7 +9,7 @@
 
 @foreach (var dziecko in Model.uczens)
 {
-     @dziecko.Imie
+    <h4> @dziecko.Imie</h4>
     <div class="panel panel-default">
         @foreach (var p in dziecko.klasa.przedmioty)
         {

@@ -64,14 +64,7 @@ namespace MVC_DziennikSzkolny.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Oceny(int przedmiotID,int uczenID,string opis,string options)
         {
-            if (Request.Cookies["zalogowanyID"] == null)
-            {
-               // return RedirectToAction("Logowanie", "User");
-            }
-            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
-            {
-               // return Redirect("BrakUprawnien");
-            }
+           
             Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
 
             Ocena o = new Ocena();
@@ -90,20 +83,6 @@ namespace MVC_DziennikSzkolny.Controllers
 
         }
      
-        public ActionResult Wiadomosci()
-        {
-
-            if (Request.Cookies["zalogowanyID"] == null)
-            {
-                return RedirectToAction("Logowanie", "User");
-            }
-            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
-            {
-                return Redirect("BrakUprawnien");
-            }
-
-            return View();
-        }
         public ActionResult Ogloszenia()
         {
 
@@ -152,13 +131,13 @@ namespace MVC_DziennikSzkolny.Controllers
          
             db.Ogloszenia.Add(og);
             db.SaveChanges();
-           
+            nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+
             return View(nauczyciel.ogloszenia);
         }
         public ActionResult Przedmioty()
         {
-            //TODO : mozliwosc dodawania treści, plików i tworzenia testow
-
+          
             if (Request.Cookies["zalogowanyID"] == null)
             {
                 return RedirectToAction("Logowanie", "User");
@@ -198,39 +177,6 @@ namespace MVC_DziennikSzkolny.Controllers
            
         }
 
-        // GET:
-        public ActionResult EditProfil()
-        {
-
-            if (Request.Cookies["zalogowanyID"] == null)
-            {
-                return RedirectToAction("Logowanie", "User");
-            }
-            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
-            {
-                return Redirect("BrakUprawnien");
-            }
-
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
-            return View(nauczyciel);
-        }
-
-        // POST: Nauczyciels/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditProfil([Bind(Include = "nauczycielID,Imie,Nazwisko,Pesel,Nr_telefonu,email,haslo")] Nauczyciel nauczyciel)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(nauczyciel).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Profil");
-            }
-            return View(nauczyciel);
-        }
-
 
         public ActionResult Uczniowie()//klasa wychowawcy
         {
@@ -247,7 +193,7 @@ namespace MVC_DziennikSzkolny.Controllers
             Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
             if(nauczyciel.klasa.Any() && nauczyciel.klasa!=null)//if nauczyciel jest wychowawcą
             {
-                ViewBag.wychowawstwo = "Wychowawca klasy " + nauczyciel.klasa.First().symbol;
+                ViewBag.wychowawstwo = "Jesteś wychowacą klasy " + nauczyciel.klasa.First().rok_rozpoczecia_toku_ksztalcenia+" "+nauczyciel.klasa.First().symbol;
                 return View(nauczyciel.klasa.First());
             }
             else
@@ -311,8 +257,8 @@ namespace MVC_DziennikSzkolny.Controllers
         public ActionResult RezerwujSale()
         {
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID");
-            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "saleLekcyjneID");
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "przedmiotID");
+            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "numerSali");
             return View();
         }
 
@@ -331,8 +277,8 @@ namespace MVC_DziennikSzkolny.Controllers
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", zajetoscSalLekcyjnych.klasaID);
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "ID", zajetoscSalLekcyjnych.nauczycielPrzedmiotID);
-            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "saleLekcyjneID", zajetoscSalLekcyjnych.saleLekcyjneID);
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "przedmiotID");
+            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "numerSali");
             return View(zajetoscSalLekcyjnych);
         }
         public ActionResult BrakUprawnien()
