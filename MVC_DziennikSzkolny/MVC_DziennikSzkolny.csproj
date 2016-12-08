@@ -560,6 +560,7 @@
     <Content Include="Views\Nauczyciel\Sale.cshtml" />
     <Content Include="Views\Nauczyciel\DetailsSale.cshtml" />
     <Content Include="Views\Nauczyciel\RezerwujSale.cshtml" />
+    <Content Include="Views\Rodzics\NiemoznaUsunac.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610291633022_nazwa.resx">

@@ -23,7 +23,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien","Admin");
             }
             return View(db.Rodzice.OrderBy(r=>r.Nazwisko).ToList());
         }
@@ -37,7 +37,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -60,7 +60,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             return View();
         }
@@ -91,7 +91,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -130,7 +130,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -140,6 +140,10 @@ namespace MVC_DziennikSzkolny.Controllers
             if (rodzic == null)
             {
                 return HttpNotFound();
+            }
+            if(rodzic.uczens.Count>0)
+            {
+                return RedirectToAction("NiemoznaUsunac","Rodzics");
             }
             return View(rodzic);
         }
@@ -163,5 +167,11 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult NiemoznaUsunac()
+        {
+          
+            return View();
+        }
+
     }
 }

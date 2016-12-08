@@ -6,7 +6,7 @@
 @{
     Layout = "~/Views/Admin/_LayoutPanel.cshtml";
 }
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
     <h4>Nauczyciel</h4>
@@ -68,8 +68,8 @@
 
 
                 <td>
-                    @Html.ActionLink("Details", "Details", "Przedmiots", new { id = item.przedmiotID }, null) |
-                    @Html.ActionLink("Delete", "Delete", "ListaNauczycieliPrzedmiotus", new { id = item.ID }, null) |
+                    @Html.ActionLink("Szczegóły", "Details", "Przedmiots", new { id = item.przedmiotID }, null) |
+                    @Html.ActionLink("Usuń", "Delete", "ListaNauczycieliPrzedmiotus", new { id = item.ID }, null) |
        
                 </td>
             </tr>
@@ -79,9 +79,9 @@
     @Html.ActionLink("Dodaj przedmiot", "AddPrzedmiot", "ListaNauczycieliPrzedmiotus", new { id = Model.nauczycielID}, null)
 
 </div>
-<p>  @Html.ActionLink("Edit", "Edit", new { id = Model.nauczycielID }) |
+<p>  @Html.ActionLink("Edytuj", "Edit", new { id = Model.nauczycielID }) |
   
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Wróć do listy", "Index")
 </p>
 
 <script>

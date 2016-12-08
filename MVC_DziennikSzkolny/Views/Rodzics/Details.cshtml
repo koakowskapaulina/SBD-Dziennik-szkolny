@@ -6,7 +6,7 @@
 @{
     Layout = "~/Views/Admin/_LayoutPanel.cshtml";
 }
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
     <h4>Rodzic</h4>
@@ -73,14 +73,14 @@
                 @Html.DisplayFor(modelV => v.klasa.symbol)
             </dd>
 
-            @Html.ActionLink("Details", "Details", "Uczens", new { id = v.uczenID }, null)
+            @Html.ActionLink("Szczegóły", "Details", "Uczens", new { id = v.uczenID }, null)
             </dl>
             }
 
 </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.rodzicID }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Edytuj", "Edit", new { id = Model.rodzicID }) |
+        @Html.ActionLink("Wróć do listy", "Index")
     </p>
 
 <script>

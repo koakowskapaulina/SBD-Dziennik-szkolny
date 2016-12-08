@@ -6,10 +6,10 @@
 @{
     Layout = "~/Views/Admin/_LayoutPanel.cshtml";
 }
-<h2>Index</h2>
+<h2>Lista nauczycieli</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj nowego nauczyciela", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
        
       
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.nauczycielID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.nauczycielID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.nauczycielID }) |
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.nauczycielID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.nauczycielID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id = item.nauczycielID }) |
             @Html.ActionLink("Przydziel przedmiot", "AddPrzedmiot", "ListaNauczycieliPrzedmiotus", new { id = item.nauczycielID },null)
           
 
