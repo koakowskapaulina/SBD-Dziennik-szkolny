@@ -183,7 +183,7 @@ namespace MVC_DziennikSzkolny.Controllers
 
 
         // GET: ListaNauczycieliPrzedmiotus/AddPrzedmiot/5
-        public ActionResult AddPrzedmiot(int? id)
+        public ActionResult AddPrzedmiot(int? id)//id nauczyciela
         {
             if (id == null)
             {
@@ -194,10 +194,14 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Nazwisko",nauczyciel.nauczycielID);
+
+            ViewBag.nauczycielID = nauczyciel.nauczycielID;
+            ViewBag.nauczyciel = nauczyciel.Imie + " " + nauczyciel.Nazwisko;
             //TODO: usunac powtarzajace sie przedmioty
+            // var przedmiotyNauczyciela = from np in db.listaNauczycielPrzedmiot where np.nauczycielID == nauczyciel.nauczycielID select np.przedmiotID;
             ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa");
 
+          //  db.Przedmioty.Except(przedmiotyNauczyciela);
             return View();
         }
 

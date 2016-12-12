@@ -23,7 +23,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             var uczniowie = db.Uczniowie.Include(u => u.klasa).Include(u => u.rodzic).OrderBy(a=>a.Nazwisko);
             return View(uczniowie.ToList());
@@ -38,7 +38,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
 
             if (id == null)
@@ -62,7 +62,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
@@ -79,9 +79,18 @@ namespace MVC_DziennikSzkolny.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Uczniowie.Add(uczen);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                if (db.Uczniowie.Where(u => u.email.Equals(uczen.email) ).Any() || db.Rodzice.Where(r => r.email.Equals(uczen.email)).Any() || db.Nauczyciele.Where(n => n.email.Equals(uczen.email)).Any())
+                {
+                    ViewBag.EmailJuzIstnieje = "Podany email już istniej w bazie. Musisz podać inny";
+                }
+                else
+                {
+                    db.Uczniowie.Add(uczen);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", uczen.klasaID);
@@ -98,7 +107,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -141,7 +150,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {

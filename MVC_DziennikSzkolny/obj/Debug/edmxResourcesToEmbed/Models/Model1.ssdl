@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Klasas">
+    <Key>
+      <PropertyRef Name="klasaID" />
+    </Key>
+    <Property Name="klasaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rok_rozpoczecia_toku_ksztalcenia" Type="int" Nullable="false" />
+    <Property Name="symbol" Type="nvarchar(max)" />
+    <Property Name="nauczycielID" Type="int" />
+  </EntityType>
+  <EntityType Name="ListaNauczycieliPrzedmiotus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nauczycielID" Type="int" Nullable="false" />
+    <Property Name="przedmiotID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListaPrzedmiotowKlasies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="klasaID" Type="int" Nullable="false" />
+    <Property Name="nauczycielPrzedmiotID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nauczyciels">
+    <Key>
+      <PropertyRef Name="nauczycielID" />
+    </Key>
+    <Property Name="nauczycielID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Imie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pesel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nr_telefonu" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="haslo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ocenas">
+    <Key>
+      <PropertyRef Name="ocenaID" />
+    </Key>
+    <Property Name="ocenaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="data_wystawienia" Type="datetime" Nullable="false" />
+    <Property Name="uczenID" Type="int" Nullable="false" />
+    <Property Name="nauczycielID" Type="int" Nullable="false" />
+    <Property Name="przedmiotID" Type="int" Nullable="false" />
+    <Property Name="wartosc" Type="float" Nullable="false" />
+    <Property Name="opis" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ogloszenies">
+    <Key>
+      <PropertyRef Name="ogloszenieID" />
+    </Key>
+    <Property Name="ogloszenieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="temat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="tresc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="data_wystawienia" Type="datetime" Nullable="false" />
+    <Property Name="nauczycielID" Type="int" Nullable="false" />
+    <Property Name="klasaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Przedmiots">
+    <Key>
+      <PropertyRef Name="przedmiotID" />
+    </Key>
+    <Property Name="przedmiotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwa" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Rodzics">
+    <Key>
+      <PropertyRef Name="rodzicID" />
+    </Key>
+    <Property Name="rodzicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Imie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pesel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nr_telefonu" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="haslo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SaleLekcyjnes">
+    <Key>
+      <PropertyRef Name="saleLekcyjneID" />
+    </Key>
+    <Property Name="saleLekcyjneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numerSali" Type="int" Nullable="false" />
+    <Property Name="pietro" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uczens">
+    <Key>
+      <PropertyRef Name="uczenID" />
+    </Key>
+    <Property Name="uczenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Imie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pesel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nr_telefonu" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="haslo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data_urodzenia" Type="date" Nullable="false" />
+    <Property Name="rodzicID" Type="int" />
+    <Property Name="klasaID" Type="int" />
+  </EntityType>
+  <EntityType Name="ZajetoscSalLekcyjnyches">
+    <Key>
+      <PropertyRef Name="zajetoscSalLekcyjnychID" />
+    </Key>
+    <Property Name="zajetoscSalLekcyjnychID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dzienTygodnia" Type="int" Nullable="false" />
+    <Property Name="klasaID" Type="int" Nullable="false" />
+    <Property Name="saleLekcyjneID" Type="int" Nullable="false" />
+    <Property Name="nauczycielPrzedmiotID" Type="int" Nullable="false" />
+    <Property Name="numerGodzinyLekcyjnej" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Klasas_dbo_Nauczyciels_nauczycielID">
+    <End Role="Nauczyciels" Type="Self.Nauczyciels" Multiplicity="0..1" />
+    <End Role="Klasas" Type="Self.Klasas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nauczyciels">
+        <PropertyRef Name="nauczycielID" />
+      </Principal>
+      <Dependent Role="Klasas">
+        <PropertyRef Name="nauczycielID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Nauczyciels_nauczycielID">
+    <End Role="Nauczyciels" Type="Self.Nauczyciels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ListaNauczycieliPrzedmiotus" Type="Self.ListaNauczycieliPrzedmiotus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nauczyciels">
+        <PropertyRef Name="nauczycielID" />
+      </Principal>
+      <Dependent Role="ListaNauczycieliPrzedmiotus">
+        <PropertyRef Name="nauczycielID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Przedmiots_przedmiotID">
+    <End Role="Przedmiots" Type="Self.Przedmiots" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ListaNauczycieliPrzedmiotus" Type="Self.ListaNauczycieliPrzedmiotus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Przedmiots">
+        <PropertyRef Name="przedmiotID" />
+      </Principal>
+      <Dependent Role="ListaNauczycieliPrzedmiotus">
+        <PropertyRef Name="przedmiotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ListaPrzedmiotowKlasies_dbo_Klasas_klasaID">
+    <End Role="Klasas" Type="Self.Klasas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ListaPrzedmiotowKlasies" Type="Self.ListaPrzedmiotowKlasies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klasas">
+        <PropertyRef Name="klasaID" />
+      </Principal>
+      <Dependent Role="ListaPrzedmiotowKlasies">
+        <PropertyRef Name="klasaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ListaPrzedmiotowKlasies_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID">
+    <End Role="ListaNauczycieliPrzedmiotus" Type="Self.ListaNauczycieliPrzedmiotus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ListaPrzedmiotowKlasies" Type="Self.ListaPrzedmiotowKlasies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListaNauczycieliPrzedmiotus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ListaPrzedmiotowKlasies">
+        <PropertyRef Name="nauczycielPrzedmiotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ocenas_dbo_Nauczyciels_nauczycielID">
+    <End Role="Nauczyciels" Type="Self.Nauczyciels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ocenas" Type="Self.Ocenas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nauczyciels">
+        <PropertyRef Name="nauczycielID" />
+      </Principal>
+      <Dependent Role="Ocenas">
+        <PropertyRef Name="nauczycielID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ocenas_dbo_Przedmiots_przedmiotID">
+    <End Role="Przedmiots" Type="Self.Przedmiots" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ocenas" Type="Self.Ocenas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Przedmiots">
+        <PropertyRef Name="przedmiotID" />
+      </Principal>
+      <Dependent Role="Ocenas">
+        <PropertyRef Name="przedmiotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ocenas_dbo_Uczens_uczenID">
+    <End Role="Uczens" Type="Self.Uczens" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ocenas" Type="Self.Ocenas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uczens">
+        <PropertyRef Name="uczenID" />
+      </Principal>
+      <Dependent Role="Ocenas">
+        <PropertyRef Name="uczenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ogloszenies_dbo_Klasas_klasaID">
+    <End Role="Klasas" Type="Self.Klasas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ogloszenies" Type="Self.Ogloszenies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klasas">
+        <PropertyRef Name="klasaID" />
+      </Principal>
+      <Dependent Role="Ogloszenies">
+        <PropertyRef Name="klasaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ogloszenies_dbo_Nauczyciels_nauczycielID">
+    <End Role="Nauczyciels" Type="Self.Nauczyciels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ogloszenies" Type="Self.Ogloszenies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nauczyciels">
+        <PropertyRef Name="nauczycielID" />
+      </Principal>
+      <Dependent Role="Ogloszenies">
+        <PropertyRef Name="nauczycielID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Uczens_dbo_Klasas_klasa_klasaID">
+    <End Role="Klasas" Type="Self.Klasas" Multiplicity="0..1" />
+    <End Role="Uczens" Type="Self.Uczens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klasas">
+        <PropertyRef Name="klasaID" />
+      </Principal>
+      <Dependent Role="Uczens">
+        <PropertyRef Name="klasaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Uczens_dbo_Rodzics_rodzic_rodzicID">
+    <End Role="Rodzics" Type="Self.Rodzics" Multiplicity="0..1" />
+    <End Role="Uczens" Type="Self.Uczens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzics">
+        <PropertyRef Name="rodzicID" />
+      </Principal>
+      <Dependent Role="Uczens">
+        <PropertyRef Name="rodzicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ZajetoscSalLekcyjnyches_dbo_Klasas_klasaID">
+    <End Role="Klasas" Type="Self.Klasas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ZajetoscSalLekcyjnyches" Type="Self.ZajetoscSalLekcyjnyches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klasas">
+        <PropertyRef Name="klasaID" />
+      </Principal>
+      <Dependent Role="ZajetoscSalLekcyjnyches">
+        <PropertyRef Name="klasaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ZajetoscSalLekcyjnyches_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID">
+    <End Role="ListaNauczycieliPrzedmiotus" Type="Self.ListaNauczycieliPrzedmiotus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ZajetoscSalLekcyjnyches" Type="Self.ZajetoscSalLekcyjnyches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListaNauczycieliPrzedmiotus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ZajetoscSalLekcyjnyches">
+        <PropertyRef Name="nauczycielPrzedmiotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ZajetoscSalLekcyjnyches_dbo_SaleLekcyjnes_saleLekcyjneID">
+    <End Role="SaleLekcyjnes" Type="Self.SaleLekcyjnes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ZajetoscSalLekcyjnyches" Type="Self.ZajetoscSalLekcyjnyches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SaleLekcyjnes">
+        <PropertyRef Name="saleLekcyjneID" />
+      </Principal>
+      <Dependent Role="ZajetoscSalLekcyjnyches">
+        <PropertyRef Name="saleLekcyjneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="Klasas" EntityType="Self.Klasas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ListaNauczycieliPrzedmiotus" EntityType="Self.ListaNauczycieliPrzedmiotus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ListaPrzedmiotowKlasies" EntityType="Self.ListaPrzedmiotowKlasies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nauczyciels" EntityType="Self.Nauczyciels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ocenas" EntityType="Self.Ocenas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ogloszenies" EntityType="Self.Ogloszenies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Przedmiots" EntityType="Self.Przedmiots" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rodzics" EntityType="Self.Rodzics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleLekcyjnes" EntityType="Self.SaleLekcyjnes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Uczens" EntityType="Self.Uczens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZajetoscSalLekcyjnyches" EntityType="Self.ZajetoscSalLekcyjnyches" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Klasas_dbo_Nauczyciels_nauczycielID" Association="Self.FK_dbo_Klasas_dbo_Nauczyciels_nauczycielID">
+      <End Role="Nauczyciels" EntitySet="Nauczyciels" />
+      <End Role="Klasas" EntitySet="Klasas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Nauczyciels_nauczycielID" Association="Self.FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Nauczyciels_nauczycielID">
+      <End Role="Nauczyciels" EntitySet="Nauczyciels" />
+      <End Role="ListaNauczycieliPrzedmiotus" EntitySet="ListaNauczycieliPrzedmiotus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Przedmiots_przedmiotID" Association="Self.FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Przedmiots_przedmiotID">
+      <End Role="Przedmiots" EntitySet="Przedmiots" />
+      <End Role="ListaNauczycieliPrzedmiotus" EntitySet="ListaNauczycieliPrzedmiotus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ListaPrzedmiotowKlasies_dbo_Klasas_klasaID" Association="Self.FK_dbo_ListaPrzedmiotowKlasies_dbo_Klasas_klasaID">
+      <End Role="Klasas" EntitySet="Klasas" />
+      <End Role="ListaPrzedmiotowKlasies" EntitySet="ListaPrzedmiotowKlasies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ListaPrzedmiotowKlasies_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID" Association="Self.FK_dbo_ListaPrzedmiotowKlasies_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID">
+      <End Role="ListaNauczycieliPrzedmiotus" EntitySet="ListaNauczycieliPrzedmiotus" />
+      <End Role="ListaPrzedmiotowKlasies" EntitySet="ListaPrzedmiotowKlasies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ocenas_dbo_Nauczyciels_nauczycielID" Association="Self.FK_dbo_Ocenas_dbo_Nauczyciels_nauczycielID">
+      <End Role="Nauczyciels" EntitySet="Nauczyciels" />
+      <End Role="Ocenas" EntitySet="Ocenas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ocenas_dbo_Przedmiots_przedmiotID" Association="Self.FK_dbo_Ocenas_dbo_Przedmiots_przedmiotID">
+      <End Role="Przedmiots" EntitySet="Przedmiots" />
+      <End Role="Ocenas" EntitySet="Ocenas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ocenas_dbo_Uczens_uczenID" Association="Self.FK_dbo_Ocenas_dbo_Uczens_uczenID">
+      <End Role="Uczens" EntitySet="Uczens" />
+      <End Role="Ocenas" EntitySet="Ocenas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ogloszenies_dbo_Klasas_klasaID" Association="Self.FK_dbo_Ogloszenies_dbo_Klasas_klasaID">
+      <End Role="Klasas" EntitySet="Klasas" />
+      <End Role="Ogloszenies" EntitySet="Ogloszenies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ogloszenies_dbo_Nauczyciels_nauczycielID" Association="Self.FK_dbo_Ogloszenies_dbo_Nauczyciels_nauczycielID">
+      <End Role="Nauczyciels" EntitySet="Nauczyciels" />
+      <End Role="Ogloszenies" EntitySet="Ogloszenies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Uczens_dbo_Klasas_klasa_klasaID" Association="Self.FK_dbo_Uczens_dbo_Klasas_klasa_klasaID">
+      <End Role="Klasas" EntitySet="Klasas" />
+      <End Role="Uczens" EntitySet="Uczens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Uczens_dbo_Rodzics_rodzic_rodzicID" Association="Self.FK_dbo_Uczens_dbo_Rodzics_rodzic_rodzicID">
+      <End Role="Rodzics" EntitySet="Rodzics" />
+      <End Role="Uczens" EntitySet="Uczens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ZajetoscSalLekcyjnyches_dbo_Klasas_klasaID" Association="Self.FK_dbo_ZajetoscSalLekcyjnyches_dbo_Klasas_klasaID">
+      <End Role="Klasas" EntitySet="Klasas" />
+      <End Role="ZajetoscSalLekcyjnyches" EntitySet="ZajetoscSalLekcyjnyches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ZajetoscSalLekcyjnyches_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID" Association="Self.FK_dbo_ZajetoscSalLekcyjnyches_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID">
+      <End Role="ListaNauczycieliPrzedmiotus" EntitySet="ListaNauczycieliPrzedmiotus" />
+      <End Role="ZajetoscSalLekcyjnyches" EntitySet="ZajetoscSalLekcyjnyches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ZajetoscSalLekcyjnyches_dbo_SaleLekcyjnes_saleLekcyjneID" Association="Self.FK_dbo_ZajetoscSalLekcyjnyches_dbo_SaleLekcyjnes_saleLekcyjneID">
+      <End Role="SaleLekcyjnes" EntitySet="SaleLekcyjnes" />
+      <End Role="ZajetoscSalLekcyjnyches" EntitySet="ZajetoscSalLekcyjnyches" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

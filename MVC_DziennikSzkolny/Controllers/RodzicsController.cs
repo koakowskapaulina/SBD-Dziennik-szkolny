@@ -74,9 +74,16 @@ namespace MVC_DziennikSzkolny.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Rodzice.Add(rodzic);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Uczniowie.Where(u => u.email.Equals(rodzic.email)).Any() || db.Rodzice.Where(r => r.email.Equals(rodzic.email)).Any() || db.Nauczyciele.Where(n => n.email.Equals(rodzic.email)).Any())
+                {
+                    ViewBag.EmailJuzIstnieje = "Podany email już istniej w bazie. Musisz podać inny";
+                }
+                else
+                {
+                    db.Rodzice.Add(rodzic);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(rodzic);

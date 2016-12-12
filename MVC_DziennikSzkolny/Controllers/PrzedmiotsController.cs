@@ -23,7 +23,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             return View(db.Przedmioty.OrderBy(p=>p.nazwa).ToList());
         }
@@ -37,7 +37,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -60,7 +60,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             return View();
         }
@@ -91,7 +91,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -130,7 +130,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {

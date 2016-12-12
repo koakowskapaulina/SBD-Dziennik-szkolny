@@ -23,7 +23,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             return View(db.saleLekcyjne.ToList());
         }
@@ -37,7 +37,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -60,7 +60,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             return View();
         }
@@ -78,7 +78,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -126,7 +126,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (ModelState.IsValid)
             {
@@ -146,7 +146,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -171,7 +171,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             SaleLekcyjne saleLekcyjne = db.saleLekcyjne.Find(id);
             db.saleLekcyjne.Remove(saleLekcyjne);

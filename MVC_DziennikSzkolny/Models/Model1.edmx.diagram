@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d6477c2ac4745cc9e96f3915940cbef" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.Klasas" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.ListaNauczycieliPrzedmiotus" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.ListaPrzedmiotowKlasies" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Nauczyciels" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Ocenas" Width="1.5" PointX="10.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Ogloszenies" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Przedmiots" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Rodzics" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.SaleLekcyjnes" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Uczens" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.ZajetoscSalLekcyjnyches" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Klasas_dbo_Nauczyciels_nauczycielID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_ListaPrzedmiotowKlasies_dbo_Klasas_klasaID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Ogloszenies_dbo_Klasas_klasaID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Uczens_dbo_Klasas_klasa_klasaID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_ZajetoscSalLekcyjnyches_dbo_Klasas_klasaID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Nauczyciels_nauczycielID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_ListaNauczycieliPrzedmiotus_dbo_Przedmiots_przedmiotID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_ListaPrzedmiotowKlasies_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_ZajetoscSalLekcyjnyches_dbo_ListaNauczycieliPrzedmiotus_nauczycielPrzedmiotID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Ocenas_dbo_Nauczyciels_nauczycielID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Ogloszenies_dbo_Nauczyciels_nauczycielID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Ocenas_dbo_Przedmiots_przedmiotID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Ocenas_dbo_Uczens_uczenID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_Uczens_dbo_Rodzics_rodzic_rodzicID" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_dbo_ZajetoscSalLekcyjnyches_dbo_SaleLekcyjnes_saleLekcyjneID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -23,7 +23,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             return View(db.Nauczyciele.OrderBy(r => r.Nazwisko).ToList());
         }
@@ -37,7 +37,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -60,7 +60,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             return View();
         }
@@ -74,9 +74,17 @@ namespace MVC_DziennikSzkolny.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Nauczyciele.Add(nauczyciel);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Uczniowie.Where(u => u.email.Equals(nauczyciel.email)).Any()  || db.Rodzice.Where(r => r.email.Equals(nauczyciel.email)).Any() || db.Nauczyciele.Where(n => n.email.Equals(nauczyciel.email)).Any())
+                {
+                    ViewBag.EmailJuzIstnieje = "Podany email już istniej w bazie. Musisz podać inny";
+                }
+                else
+                {
+
+                    db.Nauczyciele.Add(nauczyciel);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(nauczyciel);
@@ -91,7 +99,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {
@@ -130,7 +138,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
             if (!Request.Cookies["zalogowanyRola"].Value.Equals("admin"))
             {
-                return Redirect("BrakUprawnien");
+                return RedirectToAction("BrakUprawnien", "Admin");
             }
             if (id == null)
             {

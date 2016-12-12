@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Klasas">
+      <EntityTypeMapping TypeName="DatabaseModel.Klasas">
+        <MappingFragment StoreEntitySet="Klasas">
+          <ScalarProperty Name="klasaID" ColumnName="klasaID" />
+          <ScalarProperty Name="rok_rozpoczecia_toku_ksztalcenia" ColumnName="rok_rozpoczecia_toku_ksztalcenia" />
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="nauczycielID" ColumnName="nauczycielID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListaNauczycieliPrzedmiotus">
+      <EntityTypeMapping TypeName="DatabaseModel.ListaNauczycieliPrzedmiotus">
+        <MappingFragment StoreEntitySet="ListaNauczycieliPrzedmiotus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="nauczycielID" ColumnName="nauczycielID" />
+          <ScalarProperty Name="przedmiotID" ColumnName="przedmiotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListaPrzedmiotowKlasies">
+      <EntityTypeMapping TypeName="DatabaseModel.ListaPrzedmiotowKlasies">
+        <MappingFragment StoreEntitySet="ListaPrzedmiotowKlasies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="klasaID" ColumnName="klasaID" />
+          <ScalarProperty Name="nauczycielPrzedmiotID" ColumnName="nauczycielPrzedmiotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nauczyciels">
+      <EntityTypeMapping TypeName="DatabaseModel.Nauczyciels">
+        <MappingFragment StoreEntitySet="Nauczyciels">
+          <ScalarProperty Name="nauczycielID" ColumnName="nauczycielID" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+          <ScalarProperty Name="Nr_telefonu" ColumnName="Nr_telefonu" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ocenas">
+      <EntityTypeMapping TypeName="DatabaseModel.Ocenas">
+        <MappingFragment StoreEntitySet="Ocenas">
+          <ScalarProperty Name="ocenaID" ColumnName="ocenaID" />
+          <ScalarProperty Name="data_wystawienia" ColumnName="data_wystawienia" />
+          <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+          <ScalarProperty Name="nauczycielID" ColumnName="nauczycielID" />
+          <ScalarProperty Name="przedmiotID" ColumnName="przedmiotID" />
+          <ScalarProperty Name="wartosc" ColumnName="wartosc" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ogloszenies">
+      <EntityTypeMapping TypeName="DatabaseModel.Ogloszenies">
+        <MappingFragment StoreEntitySet="Ogloszenies">
+          <ScalarProperty Name="ogloszenieID" ColumnName="ogloszenieID" />
+          <ScalarProperty Name="temat" ColumnName="temat" />
+          <ScalarProperty Name="tresc" ColumnName="tresc" />
+          <ScalarProperty Name="data_wystawienia" ColumnName="data_wystawienia" />
+          <ScalarProperty Name="nauczycielID" ColumnName="nauczycielID" />
+          <ScalarProperty Name="klasaID" ColumnName="klasaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Przedmiots">
+      <EntityTypeMapping TypeName="DatabaseModel.Przedmiots">
+        <MappingFragment StoreEntitySet="Przedmiots">
+          <ScalarProperty Name="przedmiotID" ColumnName="przedmiotID" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rodzics">
+      <EntityTypeMapping TypeName="DatabaseModel.Rodzics">
+        <MappingFragment StoreEntitySet="Rodzics">
+          <ScalarProperty Name="rodzicID" ColumnName="rodzicID" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+          <ScalarProperty Name="Nr_telefonu" ColumnName="Nr_telefonu" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleLekcyjnes">
+      <EntityTypeMapping TypeName="DatabaseModel.SaleLekcyjnes">
+        <MappingFragment StoreEntitySet="SaleLekcyjnes">
+          <ScalarProperty Name="saleLekcyjneID" ColumnName="saleLekcyjneID" />
+          <ScalarProperty Name="numerSali" ColumnName="numerSali" />
+          <ScalarProperty Name="pietro" ColumnName="pietro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uczens">
+      <EntityTypeMapping TypeName="DatabaseModel.Uczens">
+        <MappingFragment StoreEntitySet="Uczens">
+          <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+          <ScalarProperty Name="Nr_telefonu" ColumnName="Nr_telefonu" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="haslo" ColumnName="haslo" />
+          <ScalarProperty Name="Data_urodzenia" ColumnName="Data_urodzenia" />
+          <ScalarProperty Name="rodzicID" ColumnName="rodzicID" />
+          <ScalarProperty Name="klasaID" ColumnName="klasaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZajetoscSalLekcyjnyches">
+      <EntityTypeMapping TypeName="DatabaseModel.ZajetoscSalLekcyjnyches">
+        <MappingFragment StoreEntitySet="ZajetoscSalLekcyjnyches">
+          <ScalarProperty Name="zajetoscSalLekcyjnychID" ColumnName="zajetoscSalLekcyjnychID" />
+          <ScalarProperty Name="dzienTygodnia" ColumnName="dzienTygodnia" />
+          <ScalarProperty Name="klasaID" ColumnName="klasaID" />
+          <ScalarProperty Name="saleLekcyjneID" ColumnName="saleLekcyjneID" />
+          <ScalarProperty Name="nauczycielPrzedmiotID" ColumnName="nauczycielPrzedmiotID" />
+          <ScalarProperty Name="numerGodzinyLekcyjnej" ColumnName="numerGodzinyLekcyjnej" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
