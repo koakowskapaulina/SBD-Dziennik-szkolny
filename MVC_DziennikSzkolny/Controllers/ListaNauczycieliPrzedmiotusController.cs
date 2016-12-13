@@ -18,7 +18,7 @@ namespace MVC_DziennikSzkolny.Controllers
         public ActionResult Index()
         {
             var listaNauczycielPrzedmiot = db.listaNauczycielPrzedmiot.Include(l => l.nauczyciel).Include(l => l.przedmiot);
-            return View(listaNauczycielPrzedmiot.ToList());
+            return RedirectToAction("Index","Nauczyciels");
         }
 
         // GET: ListaNauczycieliPrzedmiotus/Details/5
@@ -140,7 +140,7 @@ namespace MVC_DziennikSzkolny.Controllers
 
         
         // GET: ListaNauczycieliPrzedmiotus/AddNauczyciel/5
-        public ActionResult AddNauczyciel(int? id)
+        public ActionResult AddNauczyciel(int? id)//dostajemy id przedmiotu
         {
             if (id == null)
             {
@@ -151,10 +151,14 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
-            //TODO: usunac powtarzajacych sie nauczycieli
-            ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Nazwisko");
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa",przedmiot.przedmiotID);
-          
+            
+          //  ViewBag.nauczycielID = new SelectList(db.Nauczyciele, "nauczycielID", "Nazwisko");
+         //   ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa",przedmiot.przedmiotID);
+
+            ViewBag.przedmiotID = przedmiot.przedmiotID;
+            ViewBag.przedmiot = przedmiot.nazwa;
+            ViewBag.nauczycielID = new SelectList(db.Nauczyciele.Where(n => n.przedmioty.All(p => p.przedmiotID != przedmiot.przedmiotID)), "nauczycielID", "Nazwisko");
+
             return View();
         }
 
@@ -197,12 +201,8 @@ namespace MVC_DziennikSzkolny.Controllers
 
             ViewBag.nauczycielID = nauczyciel.nauczycielID;
             ViewBag.nauczyciel = nauczyciel.Imie + " " + nauczyciel.Nazwisko;
-            //TODO: usunac powtarzajace sie przedmioty
-            // var przedmiotyNauczyciela = from np in db.listaNauczycielPrzedmiot where np.nauczycielID == nauczyciel.nauczycielID select np.przedmiotID;
-            ViewBag.przedmiotID = new SelectList(db.Przedmioty, "przedmiotID", "nazwa");
-
-          //  db.Przedmioty.Except(przedmiotyNauczyciela);
-            return View();
+             ViewBag.przedmiotID = new SelectList(db.Przedmioty.Where(p=>p.nauczyciele.All(n=>n.nauczycielID!=nauczyciel.nauczycielID)), "przedmiotID", "nazwa");
+              return View();
         }
 
         // POST: ListaNauczycieliPrzedmiotus/Edit/5

@@ -19,9 +19,8 @@ namespace MVC_DziennikSzkolny.Controllers
         {
 
             var listaKlasaPrzedmiot = db.listaKlasaPrzedmiot.Include(l => l.klasa).Include(l => l.nauczycielPrzedmiot);
-      //      var listaKlasaPrzedmiot = db.listaKlasaPrzedmiot.Include(l => l.klasa).Include(l => l.nauczycielPrzedmiot).Include(l => l.nauczycielPrzedmiot.przedmiot).Include(l => l.nauczycielPrzedmiot.nauczyciel);
-            //  return View(listaKlasaPrzedmiot.ToList());
-            return View(db.listaKlasaPrzedmiot.ToList());
+
+            return RedirectToAction("Index", "Klasas");
         }
 
         // GET: ListaPrzedmiotowKlasies/Details/5
