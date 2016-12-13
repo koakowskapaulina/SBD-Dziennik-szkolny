@@ -256,8 +256,18 @@ namespace MVC_DziennikSzkolny.Controllers
         // GET: ZajetoscSalLekcyjnyches/Create
         public ActionResult RezerwujSale()
         {
+            if (Request.Cookies["zalogowanyID"] == null)
+            {
+                return RedirectToAction("Logowanie", "User");
+            }
+            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
+            {
+                return Redirect("BrakUprawnien");
+            }
+            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
+
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "przedmiotID");
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot.Where(np=>np.nauczycielID==nauczyciel.nauczycielID), "ID", "przedmiot.nazwa");
             ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "numerSali");
             return View();
         }

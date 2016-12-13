@@ -19,7 +19,7 @@ namespace MVC_DziennikSzkolny.Models
         [Range(1,6)]
         public int numerGodzinyLekcyjnej { get; set; }
 
-       
+ 
         public int nauczycielPrzedmiotID { get; set; }
         public virtual ListaNauczycieliPrzedmiotu nauczycielPrzedmiot { get; set; }
         

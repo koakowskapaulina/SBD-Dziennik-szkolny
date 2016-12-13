@@ -13,6 +13,7 @@ namespace MVC_DziennikSzkolny.Models
 
         // [Range(2010, 2020)]
       
+            [Display(Name ="Rok rozpoczęcia")]
         public int rok_rozpoczecia_toku_ksztalcenia { get; set; }
         public String symbol { get; set; }
 
