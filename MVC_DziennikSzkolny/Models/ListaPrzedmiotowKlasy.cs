@@ -13,5 +13,7 @@ namespace MVC_DziennikSzkolny.Models
 
         public int nauczycielPrzedmiotID { get; set; }
         public virtual ListaNauczycieliPrzedmiotu nauczycielPrzedmiot { get; set; }
+
+      
     }
 }

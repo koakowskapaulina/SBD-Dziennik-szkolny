@@ -155,10 +155,12 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.przedmiot = przedmiot.nazwa;
           
-            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot.Where(a => a.przedmiotID == id), "ID", "nauczycielID");
 
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot.Where(np=>np.przedmiotID==przedmiot.przedmiotID),"ID","nauczyciel.Nazwisko");
+            ViewBag.klasaID = new SelectList(db.Klasas.Where(k=>k.przedmioty.All(p=>p.nauczycielPrzedmiot.przedmiotID!=przedmiot.przedmiotID)), "klasaID", "symbol");
+          
             return View();
         }
 
@@ -179,7 +181,7 @@ namespace MVC_DziennikSzkolny.Controllers
             }
 
             ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", listaPrzedmiotowKlasy.klasaID);
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "nauczycielID");
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "nauczycielID.Nazwisko");
             return View(listaPrzedmiotowKlasy);
         }
 
@@ -199,8 +201,9 @@ namespace MVC_DziennikSzkolny.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", klasa.klasaID);
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "nauczycielID");
+            ViewBag.klasa=klasa.symbol+" "+klasa.rok_rozpoczecia_toku_ksztalcenia;
+            ViewBag.klasaID =  klasa.klasaID;
+            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "przedmiot.nazwa");
 
             return View();
         }

@@ -15,5 +15,11 @@ namespace MVC_DziennikSzkolny.Models
         public int przedmiotID { get; set; }
         public virtual Przedmiot przedmiot { get; set; }
 
+        public String ToString()
+        {
+            return nauczyciel.Nazwisko + " " + nauczyciel.Imie + " " + przedmiot.nazwa;
+
+        }
+
     }
 }

@@ -42,7 +42,7 @@
 <div>
     Lista uczniów:
     <table class="table table-hover">
-        @foreach (var item in Model.uczens)
+        @foreach (var item in Model.uczens.OrderBy(u=>u.Nazwisko))
         {
             <tr>
                 <td>

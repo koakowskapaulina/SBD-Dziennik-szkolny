@@ -6,25 +6,21 @@
 @{
     Layout = "~/Views/Admin/_LayoutPanel.cshtml";
 }
-<h2>AddPrzedmiot</h2>
+<h2>Dodaj przedmiot</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ListaPrzedmiotowKlasy</h4>
+        <h4>Przydziel przedmiot dla klasy @ViewBag.klasa</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
        
-
         <div class="form-group">
-            @Html.LabelFor(model => model.klasaID, "klasaID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("klasaID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.klasaID, "", new { @class = "text-danger" })
-            </div>
+            <input id="klasaID" name="klasaID" type="hidden" class="form-control" value=@ViewBag.klasaID>
         </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.nauczycielPrzedmiotID, "nauczycielPrzedmiotID", htmlAttributes: new { @class = "control-label col-md-2" })
