@@ -93,3 +93,4 @@ C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_Dzi
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.poprawkaNauczycielPrzedmiot.resources
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.saleID.resources
 C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.zmianagodzinylekcyjnej.resources
+C:\Users\Paula\Documents\Visual Studio 2015\Projects\MVC_DziennikSzkolny\MVC_DziennikSzkolny\obj\Debug\MVC_DziennikSzkolny.Migrations.koniecSbd.resources

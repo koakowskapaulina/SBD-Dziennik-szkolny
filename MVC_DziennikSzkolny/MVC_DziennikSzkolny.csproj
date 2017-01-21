@@ -168,11 +168,9 @@
     <Compile Include="Controllers\PrzedmiotsController.cs" />
     <Compile Include="Controllers\RodzicController.cs" />
     <Compile Include="Controllers\RodzicsController.cs" />
-    <Compile Include="Controllers\SaleLekcyjnesController.cs" />
     <Compile Include="Controllers\UczenController.cs" />
     <Compile Include="Controllers\UczensController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ZajetoscSalLekcyjnychesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -324,68 +322,22 @@
     <Compile Include="Migrations\201612071706550_zmianagodzinylekcyjnej.Designer.cs">
       <DependentUpon>201612071706550_zmianagodzinylekcyjnej.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701211539053_koniecSbd.cs" />
+    <Compile Include="Migrations\201701211539053_koniecSbd.Designer.cs">
+      <DependentUpon>201701211539053_koniecSbd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Klasa.cs" />
-    <Compile Include="Models\Klasas.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ListaNauczycieliPrzedmiotu.cs" />
-    <Compile Include="Models\ListaNauczycieliPrzedmiotus.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ListaPrzedmiotowKlasies.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ListaPrzedmiotowKlasy.cs" />
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\MyDBContext.cs" />
     <Compile Include="Models\Nauczyciel.cs" />
-    <Compile Include="Models\Nauczyciels.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Ocena.cs" />
-    <Compile Include="Models\Ocenas.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Ogloszenie.cs" />
-    <Compile Include="Models\Ogloszenies.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Przedmiot.cs" />
-    <Compile Include="Models\Przedmiots.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Rodzic.cs" />
-    <Compile Include="Models\Rodzics.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SaleLekcyjne.cs" />
-    <Compile Include="Models\SaleLekcyjnes.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Uczen.cs" />
-    <Compile Include="Models\Uczens.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\ZajetoscSalLekcyjnych.cs" />
-    <Compile Include="Models\ZajetoscSalLekcyjnyches.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -409,16 +361,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -438,13 +380,6 @@
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.min.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
@@ -614,19 +549,6 @@
     <Content Include="Views\Rodzic\BrakUprawnien.cshtml" />
     <Content Include="Views\Nauczyciel\BrakUprawnien.cshtml" />
     <Content Include="Views\Admin\BrakUprawnien.cshtml" />
-    <Content Include="Views\SaleLekcyjnes\Create.cshtml" />
-    <Content Include="Views\SaleLekcyjnes\Delete.cshtml" />
-    <Content Include="Views\SaleLekcyjnes\Details.cshtml" />
-    <Content Include="Views\SaleLekcyjnes\Edit.cshtml" />
-    <Content Include="Views\SaleLekcyjnes\Index.cshtml" />
-    <Content Include="Views\ZajetoscSalLekcyjnyches\Create.cshtml" />
-    <Content Include="Views\ZajetoscSalLekcyjnyches\Delete.cshtml" />
-    <Content Include="Views\ZajetoscSalLekcyjnyches\Details.cshtml" />
-    <Content Include="Views\ZajetoscSalLekcyjnyches\Edit.cshtml" />
-    <Content Include="Views\ZajetoscSalLekcyjnyches\Index.cshtml" />
-    <Content Include="Views\Nauczyciel\Sale.cshtml" />
-    <Content Include="Views\Nauczyciel\DetailsSale.cshtml" />
-    <Content Include="Views\Nauczyciel\RezerwujSale.cshtml" />
     <Content Include="Views\Rodzics\NiemoznaUsunac.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -740,6 +662,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071706550_zmianagodzinylekcyjnej.resx">
       <DependentUpon>201612071706550_zmianagodzinylekcyjnej.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701211539053_koniecSbd.resx">
+      <DependentUpon>201701211539053_koniecSbd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

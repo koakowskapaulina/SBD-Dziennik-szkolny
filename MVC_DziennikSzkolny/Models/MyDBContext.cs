@@ -28,8 +28,6 @@ namespace MVC_DziennikSzkolny.Models
 
         public DbSet<Ogloszenie> Ogloszenia { get; set; }
        
-        public DbSet<SaleLekcyjne> saleLekcyjne { get; set; }
-
-        public DbSet<ZajetoscSalLekcyjnych> zajetoscSalLekcyjnych { get; set; }
+     
     }
 }

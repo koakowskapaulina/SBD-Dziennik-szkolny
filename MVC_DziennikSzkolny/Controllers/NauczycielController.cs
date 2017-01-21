@@ -227,70 +227,7 @@ namespace MVC_DziennikSzkolny.Controllers
             return View(uczen);
 
         }
-        public ActionResult Sale()
-        {
-           
-            return View(db.saleLekcyjne.ToList());
-        }
-        public ActionResult DetailsSale(int? id)
-        {
-            if (Request.Cookies["zalogowanyID"] == null)
-            {
-                return RedirectToAction("Logowanie", "User");
-            }
-            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
-            {
-                return Redirect("BrakUprawnien");
-            }
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SaleLekcyjne saleLekcyjne = db.saleLekcyjne.Find(id);
-            if (saleLekcyjne == null)
-            {
-                return HttpNotFound();
-            }
-            return View(saleLekcyjne);
-        }
-        // GET: ZajetoscSalLekcyjnyches/Create
-        public ActionResult RezerwujSale()
-        {
-            if (Request.Cookies["zalogowanyID"] == null)
-            {
-                return RedirectToAction("Logowanie", "User");
-            }
-            if (!Request.Cookies["zalogowanyRola"].Value.Equals("nauczyciel"))
-            {
-                return Redirect("BrakUprawnien");
-            }
-            Nauczyciel nauczyciel = db.Nauczyciele.Find(Int32.Parse(Request.Cookies["zalogowanyID"].Value));
-
-            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol");
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot.Where(np=>np.nauczycielID==nauczyciel.nauczycielID), "ID", "przedmiot.nazwa");
-            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "numerSali");
-            return View();
-        }
-
-        // POST: ZajetoscSalLekcyjnyches/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult RezerwujSale([Bind(Include = "zajetoscSalLekcyjnychID,saleLekcyjneID,dzienTygodnia,numerGodzinyLekcyjnej,nauczycielPrzedmiotID,klasaID")] ZajetoscSalLekcyjnych zajetoscSalLekcyjnych)
-        {
-            if (ModelState.IsValid)
-            {
-                db.zajetoscSalLekcyjnych.Add(zajetoscSalLekcyjnych);
-                db.SaveChanges();
-                return RedirectToAction("Panel", "Nauczyciel");
-            }
-
-            ViewBag.klasaID = new SelectList(db.Klasas, "klasaID", "symbol", zajetoscSalLekcyjnych.klasaID);
-            ViewBag.nauczycielPrzedmiotID = new SelectList(db.listaNauczycielPrzedmiot, "ID", "przedmiotID");
-            ViewBag.saleLekcyjneID = new SelectList(db.saleLekcyjne, "saleLekcyjneID", "numerSali");
-            return View(zajetoscSalLekcyjnych);
-        }
+       
         public ActionResult BrakUprawnien()
         {
             return View();
